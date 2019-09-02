@@ -1,0 +1,15 @@
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\obj\Debug\Hexapawn.csprojAssemblyReference.cache
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\obj\Debug\App.g.cs
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\obj\Debug\Hexapawn_MarkupCompile.cache
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\bin\Debug\Hexapawn.exe.config
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\bin\Debug\Hexapawn.exe
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\bin\Debug\Hexapawn.pdb
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\obj\Debug\MainWindow.g.cs
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\obj\Debug\Hexapawn_MarkupCompile.lref
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\obj\Debug\MainWindow.baml
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\obj\Debug\Hexapawn.g.resources
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\obj\Debug\Hexapawn.Properties.Resources.resources
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\obj\Debug\Hexapawn.csproj.GenerateResource.cache
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\obj\Debug\Hexapawn.csproj.CoreCompileInputs.cache
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\obj\Debug\Hexapawn.exe
+C:\Users\Brinks\source\repos\Hexapawn\Hexapawn\obj\Debug\Hexapawn.pdb
