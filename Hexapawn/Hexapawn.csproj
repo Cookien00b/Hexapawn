@@ -98,5 +98,9 @@
     <Resource Include="Images\blackPawn.png" />
     <Resource Include="Images\whitePawn.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Hexapawn_Icon.ico" />
+    <Resource Include="Images\moveDot.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
