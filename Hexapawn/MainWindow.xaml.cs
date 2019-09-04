@@ -8,6 +8,7 @@ namespace Hexapawn
     public partial class MainWindow : Window
     {
         string wbTurn = "White";
+        string pawnID = "None";
         bool whiteBottomLeft = true;
         bool whiteBottomCenter = true;
         bool whiteBottomRight = true;
@@ -30,18 +31,18 @@ namespace Hexapawn
         public MainWindow()
         {
             InitializeComponent();
-            hideBlackPawnBottomLeft();
-            hideBlackPawnMiddleLeft();
-            hideBlackPwnBottomCenter();
-            hideBlackPwnBottomRight();
-            hideBlackPwnMiddleCenter();
-            hideBlackPwnMiddleRight();
-            hideWhitePawnTopLeft();
-            hideWhitePwnTopCenter();
-            hideWhitePwnTopRight();
-            hideWhitePawnMiddleLeft();
-            hideWhitePwnMiddleCenter();
-            hideWhitePwnMiddleRight();
+            blackPwnBottomLeft.Visibility = Visibility.Hidden;
+            blackPwnMiddleLeft.Visibility = Visibility.Hidden;
+            blackPwnBottomCenter.Visibility = Visibility.Hidden;
+            blackPwnMiddleCenter.Visibility = Visibility.Hidden;
+            blackPwnBottomRight.Visibility = Visibility.Hidden;
+            blackPwnMiddleRight.Visibility = Visibility.Hidden;
+            whitePwnTopLeft.Visibility = Visibility.Hidden;
+            whitePwnTopCenter.Visibility = Visibility.Hidden;
+            whitePwnTopRight.Visibility = Visibility.Hidden;
+            whitePwnMiddleLeft.Visibility = Visibility.Hidden;
+            whitePwnMiddleCenter.Visibility = Visibility.Hidden;
+            whitePwnMiddleRight.Visibility = Visibility.Hidden;
             btnMiddleLeft.Visibility = Visibility.Hidden;
             btnMiddleCenter.Visibility = Visibility.Hidden;
             btnMiddleRight.Visibility = Visibility.Hidden;
@@ -54,183 +55,39 @@ namespace Hexapawn
             moveDotTopLeft.Visibility = Visibility.Hidden;
             moveDotTopCenter.Visibility = Visibility.Hidden;
             moveDotTopRight.Visibility = Visibility.Hidden;
-        }
-        private void hideBlackPawnTopLeft()
-        {
-            blackPwnTopLeft.Visibility = Visibility.Hidden;
-        }
-        private void showBlackPawnTopLeft()
-        {
-            blackPwnTopLeft.Visibility = Visibility.Visible;
-        }
-
-        private void hideBlackPawnMiddleLeft()
-        {
-            blackPwnMiddleLeft.Visibility = Visibility.Hidden;
-        }
-        private void showBlackPawnMiddleLeft()
-        {
-            blackPwnMiddleLeft.Visibility = Visibility.Visible;
-        }
-
-        private void hideBlackPawnBottomLeft()
-        {
-            blackPwnBottomLeft.Visibility = Visibility.Hidden;
-        }
-        private void showBlackPawnBottomLeft()
-        {
-            blackPwnBottomLeft.Visibility = Visibility.Visible;
-        }
-
-        private void hideBlackPwnTopCenter()
-        {
-            blackPwnTopCenter.Visibility = Visibility.Hidden;
-        }
-        private void showBlackPwnTopCenter()
-        {
-            blackPwnTopCenter.Visibility = Visibility.Visible;
-        }
-
-        private void hideBlackPwnMiddleCenter()
-        {
-            blackPwnMiddleCenter.Visibility = Visibility.Hidden;
-        }
-
-        private void showBlackPwnMiddleCenter()
-        {
-            blackPwnMiddleCenter.Visibility = Visibility.Visible;
-        }
-
-        private void hideBlackPwnBottomCenter()
-        {
-            blackPwnBottomCenter.Visibility = Visibility.Hidden;
-        }
-        private void showBlackPwnBottomCenter()
-        {
-            blackPwnBottomCenter.Visibility = Visibility.Visible;
-        }
-
-        private void hideBlackPwnTopRight()
-        {
-            blackPwnTopRight.Visibility = Visibility.Hidden;
-        }
-        private void showBlackPwnTopRight()
-        {
-            blackPwnTopRight.Visibility = Visibility.Visible;
-        }
-
-        private void hideBlackPwnMiddleRight()
-        {
-            blackPwnMiddleRight.Visibility = Visibility.Hidden;
-        }
-        private void showBlackPwnMiddleRight()
-        {
-            blackPwnMiddleRight.Visibility = Visibility.Visible;
-        }
-
-        private void hideBlackPwnBottomRight()
-        {
-            blackPwnBottomRight.Visibility = Visibility.Hidden;
-        }
-        private void showBlackPwnBottomRight()
-        {
-            blackPwnBottomRight.Visibility = Visibility.Visible;
-        }
-
-
-
-
-        private void hideWhitePawnTopLeft()
-        {
-            whitePwnTopLeft.Visibility = Visibility.Hidden;
-        }
-        private void showWhitePawnTopLeft()
-        {
-            whitePwnTopLeft.Visibility = Visibility.Visible;
-        }
-
-        private void hideWhitePawnMiddleLeft()
-        {
-            whitePwnMiddleLeft.Visibility = Visibility.Hidden;
-        }
-        private void showWhitePawnMiddleLeft()
-        {
-            whitePwnMiddleLeft.Visibility = Visibility.Visible;
-        }
-
-        private void hideWhitePawnBottomLeft()
-        {
-            whitePwnBottomLeft.Visibility = Visibility.Hidden;
-        }
-        private void showWhitePawnBottomLeft()
-        {
-            whitePwnBottomLeft.Visibility = Visibility.Visible;
-        }
-
-        private void hideWhitePwnTopCenter()
-        {
-            whitePwnTopCenter.Visibility = Visibility.Hidden;
-        }
-        private void showWhitePwnTopCenter()
-        {
-            whitePwnTopCenter.Visibility = Visibility.Visible;
-        }
-
-        private void hideWhitePwnMiddleCenter()
-        {
-            whitePwnMiddleCenter.Visibility = Visibility.Hidden;
-        }
-
-        private void showWhitePwnMiddleCenter()
-        {
-            whitePwnMiddleCenter.Visibility = Visibility.Visible;
-        }
-
-        private void hideWhitePwnBottomCenter()
-        {
-            whitePwnBottomCenter.Visibility = Visibility.Hidden;
-        }
-        private void showWhitePwnBottomCenter()
-        {
-            whitePwnBottomCenter.Visibility = Visibility.Visible;
-        }
-
-        private void hideWhitePwnTopRight()
-        {
-            whitePwnTopRight.Visibility = Visibility.Hidden;
-        }
-        private void showWhitePwnTopRight()
-        {
-            whitePwnTopRight.Visibility = Visibility.Visible;
-        }
-
-        private void hideWhitePwnMiddleRight()
-        {
-            whitePwnMiddleRight.Visibility = Visibility.Hidden;
-        }
-        private void showWhitePwnMiddleRight()
-        {
-            whitePwnMiddleRight.Visibility = Visibility.Visible;
-        }
-
-        private void hideWhitePwnBottomRight()
-        {
-            whitePwnBottomRight.Visibility = Visibility.Hidden;
-        }
-        private void showWhitePwnBottomRight()
-        {
-            whitePwnBottomRight.Visibility = Visibility.Visible;
+            btnMoveMiddleLeft.Visibility = Visibility.Hidden;
+            btnMoveMiddleCenter.Visibility = Visibility.Hidden;
+            btnMoveMiddleRight.Visibility = Visibility.Hidden;
+            btnMoveTopLeft.Visibility = Visibility.Hidden;
+            btnMoveTopCenter.Visibility = Visibility.Hidden;
+            btnMoveTopRight.Visibility = Visibility.Hidden;
+            btnMoveBottomLeft.Visibility = Visibility.Hidden;
+            btnMoveBottomCenter.Visibility = Visibility.Hidden;
+            btnMoveBottomRight.Visibility = Visibility.Hidden;
         }
 
         private void BtnBottomLeft_Click(object sender, RoutedEventArgs e)
         {
-            if (whiteBottomLeft == true)
+            if (wbTurn == "White")
             {
-                if (blackMiddleLeft == false)
+                if (whiteBottomLeft == true)
                 {
-                    moveDotMiddleLeft.Visibility = Visibility.Visible;
-                    btnMiddleLeft.Visibility = Visibility.Visible;
+                    if (blackMiddleLeft == false)
+                    {
+                        moveDotMiddleLeft.Visibility = Visibility.Visible;
+                        btnMiddleLeft.Visibility = Visibility.Visible;
+                        btnMoveMiddleLeft.Visibility = Visibility.Visible;
+                        pawnID = "WBL";
+                    }
                 }
+            }
+            else if (wbTurn == "Black")
+            {
+
+            }
+            else
+            {
+                return;
             }
         }
 
@@ -273,5 +130,64 @@ namespace Hexapawn
         {
 
         }
+
+
+        private void BtnMoveBottomLeft_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMoveMiddleLeft_Click(object sender, RoutedEventArgs e)
+        {
+            if (wbTurn == "White")
+            {
+                if (pawnID == "WBL")
+                {
+                    moveDotMiddleLeft.Visibility = Visibility.Hidden;
+                    moveDotMiddleCenter.Visibility = Visibility.Hidden;
+                    whitePwnBottomLeft.Visibility = Visibility.Hidden;
+                    whitePwnMiddleLeft.Visibility = Visibility.Visible;
+                    whiteBottomLeft = false;
+                    whiteMiddleLeft = true;
+                    wbTurn = "Black";
+                }
+            }
+        }
+
+        private void BtnMoveTopLeft_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMoveBottomCenter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMoveMiddleCenter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMoveTopCenter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMoveTopRight_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMoveMiddleRight_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMoveBottomRight_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
+
