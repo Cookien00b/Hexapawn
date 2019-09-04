@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/hexapawn_icon.ico")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/movedot.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("hexapawn_icon.ico")]
 
 
