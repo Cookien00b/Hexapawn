@@ -7,6 +7,8 @@ namespace Hexapawn
     /// </summary>
     public partial class MainWindow : Window
     {
+        int whiteWins = 0;
+        int blackWins = 0;
         string wbTurn = "White";
         string pawnID = "None";
         bool moveAvailable = false;
@@ -409,7 +411,52 @@ namespace Hexapawn
 
         private void BtnMoveTopCenter_Click(object sender, RoutedEventArgs e)
         {
+            hideAllMoves();
+            if (wbTurn == "White")
+            {
+                if (pawnID == "WML")
+                {
+                    whitePwnTopCenter.Visibility = Visibility.Hidden;
+                    whitePwnTopCenter.Visibility = Visibility.Visible;
+                    blackPwnTopCenter.Visibility = Visibility.Hidden;
+                    blackTopCenter = false;
+                    whiteTopCenter = true;
+                    whiteMiddleLeft = false;
+                    wbTurn = "Black";
+                    pawnID = "None";
+                    whiteWins = whiteWins + 1;
+                    MessageBox.Show("White wins!", "White won");
+                }
+                if (pawnID == "WMC")
+                {
+                    whitePwnTopCenter.Visibility = Visibility.Visible;
+                    whitePwnMiddleCenter.Visibility = Visibility.Hidden;
+                    whiteMiddleCenter = false;
+                    whiteTopCenter = true;
+                    wbTurn = "Black";
+                    pawnID = "None";
+                    whiteWins = whiteWins + 1;
+                    MessageBox.Show("White wins!", "White won");
+                }
+                if (pawnID == "WMR")
+                {
+                    whitePwnMiddleRight.Visibility = Visibility.Hidden;
+                    blackPwnTopCenter.Visibility = Visibility.Hidden;
+                    whitePwnTopCenter.Visibility = Visibility.Visible;
+                    whiteTopCenter = true;
+                    whiteMiddleRight = false;
+                    blackTopCenter = false;
+                    wbTurn = "Black";
+                    pawnID = "None";
+                    whiteWins = whiteWins + 1;
+                    MessageBox.Show("White wins!", "White won");
+                }
 
+            }
+            else if (wbTurn == "Black")
+            {
+                return;
+            }
         }
 
         private void BtnMoveTopRight_Click(object sender, RoutedEventArgs e)
