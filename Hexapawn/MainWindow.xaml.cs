@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace Hexapawn
 {
@@ -71,77 +72,69 @@ namespace Hexapawn
             btnMoveBottomRight.Visibility = Visibility.Hidden;
         }
 
-        //hideAllMoves();
-        //    if (pawnID == "WCURRENT")
-        //    {
-        //        pawnID = "None";
-        //    }
-        //    else if (pawnID == "BCURRENT") 
-        //    {
-        //    
-        //    }
-        //    else if (pawnID == "None")
-        //    {
+            //hideAllMoves();
+            //if (pawnID == "WCURRENT")
+            //{
+            //    pawnID = "None";
+            //}
+            //else if (pawnID == "BCURRENT")
+            //{
+            //    pawnID = "None";
+            //}
+            //else
+            //{
 
-        //        if (wbTurn == "White")
-        //        {
-        //            pawnID = "WCURRENT";
-        //            if (whiteCURRENT == true)
-        //            {
-        //                if (blackINFRONT == false)
-        //                {
-        //                    moveDotINFRONT.Visibility = Visibility.Visible;
-        //                    btnMoveINFRONT.Visibility = Visibility.Visible;
-        //                    moveAvailable = true;
-        //                }
-        //                if (blackDIAGNALLEFT == true)
-        //                {
-        //                    moveDotDIAGNALLEFT.Visibility = Visibility.Visible;
-        //                    btnMoveDIAGNALLEFT.Visibility = Visibility.Visible;
-        //                    moveAvailable = true;
-        //                }
-        //                if (blackDIAGNALRIGHT == true)
-        //                {
-        //                    moveDotDIAGNALRIGHT.Visibility = Visibility.Visible;
-        //                    btnMoveDIAGNALRIGHT.Visibility = Visibility.Visible;
-        //                    moveAvailable = true;
-        //                }
-        //            }
-        //        }
-        //        else if (wbTurn == "Black")
-        //        {
-        //            pawnID = "BCURRENT";
-        //            if (blackCURRENT == true)
-        //            {
-        //                if (whiteINFRONT == false)
-        //                {
-        //                    moveDotINFRONT.Visibility = Visibility.Visible;
-        //                    btnMoveINFRONT.Visibility = Visibility.Visible;
-        //                    moveAvailable = true;
-        //                }
-        //                if (whiteDIAGNALLEFT == true)
-        //                {
-        //                    moveDotDIAGNALLEFT.Visibility = Visibility.Visible;
-        //                    btnMoveDIAGNALLEFT.Visibility = Visibility.Visible;
-        //                    moveAvailable = true;
-        //                }
-        //                if (whiteDIAGNALRIGHT == true)
-        //                {
-        //                    moveDotDIAGNALRIGHT.Visibility = Visibility.Visible;
-        //                    btnMoveDIAGNALRIGHT.Visibility = Visibility.Visible;
-        //                    moveAvailable = true;
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            return;
-        //        }
-        //    }
-        //    else
-        //    {
-
-        //    }
+            //    if (wbTurn == "White" && whiteCURRENT == true)
+            //    {
+            //        pawnID = "WCURRENT";
+            //        if (whiteCURRENT == true)
+            //        {
+            //            if (blackINFRONT == false)
+            //            {
+            //                moveDotINFRONT.Visibility = Visibility.Visible;
+            //                btnMoveINFRONT.Visibility = Visibility.Visible;
+            //                moveAvailable = true;
+            //            }
+            //            if (blackDIAGNALLEFT == true)
+            //            {
+            //                moveDotDIAGNALLEFT.Visibility = Visibility.Visible;
+            //                btnMoveDIAGNALLEFT.Visibility = Visibility.Visible;
+            //                moveAvailable = true;
+            //            }
+            //            if (blackDIAGNALRIGHT == true)
+            //            {
+            //                moveDotDIAGNALRIGHT.Visibility = Visibility.Visible;
+            //                btnMoveDIAGNALRIGHT.Visibility = Visibility.Visible;
+            //                moveAvailable = true;
+            //            }
+            //        }
+            //    }
+            //    else if (wbTurn == "Black" && blackCURRENT == true)
+            //    {
+            //        pawnID = "BCURRENT";
+            //        if (blackCURRENT == true)
+            //        {
+            //            if (whiteINFRONT == false)
+            //            {
+            //                moveDotINFRONT.Visibility = Visibility.Visible;
+            //                btnMoveINFRONT.Visibility = Visibility.Visible;
+            //                moveAvailable = true;
+            //            }
+            //            if (whiteDIAGNALLEFT == true)
+            //            {
+            //                moveDotDIAGNALLEFT.Visibility = Visibility.Visible;
+            //                btnMoveDIAGNALLEFT.Visibility = Visibility.Visible;
+            //                moveAvailable = true;
+            //            }
+            //            if (whiteDIAGNALRIGHT == true)
+            //            {
+            //                moveDotDIAGNALRIGHT.Visibility = Visibility.Visible;
+            //                btnMoveDIAGNALRIGHT.Visibility = Visibility.Visible;
+            //                moveAvailable = true;
+            //            }
+            //        }
+            //    }
+            //}
 
         private void BtnBottomLeft_Click(object sender, RoutedEventArgs e)
         {
@@ -154,48 +147,125 @@ namespace Hexapawn
             {
                 pawnID = "None";
             }
-            else if (pawnID == "None")
+            else
             {
-                
+
                 if (wbTurn == "White" && whiteBottomLeft == true)
                 {
                     pawnID = "WBL";
                     if (blackMiddleLeft == false)
                     {
-                            moveDotMiddleLeft.Visibility = Visibility.Visible;
-                            btnMoveMiddleLeft.Visibility = Visibility.Visible;
+                        moveDotMiddleLeft.Visibility = Visibility.Visible;
+                        btnMoveMiddleLeft.Visibility = Visibility.Visible;
                         moveAvailable = true;
                     }
                     if (blackMiddleCenter == true)
                     {
-                            moveDotMiddleCenter.Visibility = Visibility.Visible;
-                            btnMoveMiddleCenter.Visibility = Visibility.Visible;
-                            moveAvailable = true;
+                        moveDotMiddleCenter.Visibility = Visibility.Visible;
+                        btnMoveMiddleCenter.Visibility = Visibility.Visible;
+                        moveAvailable = true;
                     }
                 }
                 else if (wbTurn == "Black" && blackBottomLeft == true)
                 {
                     pawnID = "BBL";
                 }
-                else
-                {
-                    return;
-                }
-            }
-            else
-            {
-
             }
         }
 
         private void BtnMiddleLeft_Click(object sender, RoutedEventArgs e)
         {
+            hideAllMoves();
+            if (pawnID == "WML")
+            {
+                pawnID = "None";
+            }
+            else if (pawnID == "BML")
+            {
+                pawnID = "None";
+            }
+            else
+            {
 
+                if (wbTurn == "White" &&  whiteMiddleLeft == true)
+                {
+                    pawnID = "WML";
+                    if (whiteMiddleLeft == true)
+                    {
+                        if (blackTopLeft == false)
+                        {
+                            moveDotTopLeft.Visibility = Visibility.Visible;
+                            btnMoveTopLeft.Visibility = Visibility.Visible;
+                            moveAvailable = true;
+                        }
+                        if (blackTopCenter == true)
+                        {
+                            moveDotTopCenter.Visibility = Visibility.Visible;
+                            btnMoveTopCenter.Visibility = Visibility.Visible;
+                            moveAvailable = true;
+                        }
+                    }
+                }
+                else if (wbTurn == "Black" && blackMiddleLeft == true)
+                {
+                    pawnID = "BML";
+                    if (blackMiddleLeft == true)
+                    {
+                        if (whiteBottomLeft == false)
+                        {
+                            moveDotBottomLeft.Visibility = Visibility.Visible;
+                            btnMoveBottomLeft.Visibility = Visibility.Visible;
+                            moveAvailable = true;
+                        }
+                        if (whiteBottomCenter == true)
+                        {
+                            moveDotBottomCenter.Visibility = Visibility.Visible;
+                            btnMoveBottomCenter.Visibility = Visibility.Visible;
+                            moveAvailable = true;
+                        }
+                    }
+                }
+            }
         }
 
         private void BtnTopLeft_Click(object sender, RoutedEventArgs e)
         {
+            hideAllMoves();
+            if (pawnID == "WTL")
+            {
+                pawnID = "None";
+            }
+            else if (pawnID == "BTL")
+            {
 
+            }
+            else
+            {
+
+                if (wbTurn == "White")
+                {
+                    return;
+                }
+                else if (wbTurn == "Black")
+                {
+                    pawnID = "BTL";
+                    if (blackTopLeft == true)
+                    {
+                        if (whiteMiddleLeft == false)
+                        {
+                            moveDotMiddleLeft.Visibility = Visibility.Visible;
+                            btnMoveMiddleLeft.Visibility = Visibility.Visible;
+                            moveAvailable = true;
+                        }
+                        if (whiteMiddleCenter == true)
+                        {
+                            moveDotMiddleCenter.Visibility = Visibility.Visible;
+                            btnMoveMiddleCenter.Visibility = Visibility.Visible;
+                            moveAvailable = true;
+                        }
+                    }
+                }
+            }
         }
 
         private void BtnBottomCenter_Click(object sender, RoutedEventArgs e)
@@ -219,10 +289,10 @@ namespace Hexapawn
             {
                 pawnID = "None";
             }
-            else if (pawnID == "None")
+            else
             {
 
-                if (wbTurn == "White" && whiteTopCenter == true)
+                if (wbTurn == "White")
                 {
                     pawnID = "WTC";
                 }
@@ -251,16 +321,7 @@ namespace Hexapawn
                         }
                     }
                 }
-                else
-                {
-                    return;
-                }
             }
-            else
-            {
-
-            }
-
         }
 
         private void BtnTopRight_Click(object sender, RoutedEventArgs e)
@@ -281,7 +342,37 @@ namespace Hexapawn
 
         private void BtnMoveBottomLeft_Click(object sender, RoutedEventArgs e)
         {
-
+            if (wbTurn == "White")
+            {
+                return;
+            }
+            if (wbTurn == "Black")
+            {
+                if (pawnID == "BML")
+                {
+                    blackPwnMiddleLeft.Visibility = Visibility.Hidden;
+                    blackPwnBottomLeft.Visibility = Visibility.Visible;
+                    blackMiddleLeft = false;
+                    blackBottomLeft = true;
+                    wbTurn = "White";
+                    pawnID = "None";
+                    blackWins = blackWins + 1;
+                    MessageBox.Show("Black wins!", "Black won");
+                }
+                if (pawnID == "BMC")
+                {
+                    blackPwnMiddleCenter.Visibility = Visibility.Hidden;
+                    blackPwnBottomLeft.Visibility = Visibility.Visible;
+                    whitePwnBottomLeft.Visibility = Visibility.Hidden;
+                    blackMiddleCenter = false;
+                    whiteBottomLeft = false;
+                    blackBottomLeft = true;
+                    wbTurn = "White";
+                    pawnID = "None";
+                    blackWins = blackWins + 1;
+                    MessageBox.Show("Black wins!", "Black won");
+                }
+            }
         }
 
         private void BtnMoveMiddleLeft_Click(object sender, RoutedEventArgs e)
@@ -330,12 +421,81 @@ namespace Hexapawn
 
         private void BtnMoveTopLeft_Click(object sender, RoutedEventArgs e)
         {
-
+            if (wbTurn == "White")
+            {
+                if (pawnID == "WML")
+                {
+                    whitePwnMiddleLeft.Visibility = Visibility.Hidden;
+                    whitePwnTopLeft.Visibility = Visibility.Visible;
+                    whiteMiddleLeft = false;
+                    whiteTopLeft = true;
+                    wbTurn = "Black";
+                    pawnID = "None";
+                    whiteWins = whiteWins + 1;
+                    MessageBox.Show("White wins!", "White won");
+                }
+                if (pawnID == "WMC")
+                {
+                    whitePwnMiddleCenter.Visibility = Visibility.Hidden;
+                    whitePwnTopLeft.Visibility = Visibility.Visible;
+                    blackPwnTopLeft.Visibility = Visibility.Hidden;
+                    blackTopLeft = false;
+                    whiteTopLeft = true;
+                    blackTopLeft = false;
+                    wbTurn = "Black";
+                    pawnID = "None";
+                    whiteWins = whiteWins + 1;
+                    MessageBox.Show("White wins!", "White won");
+                }
+            }
         }
 
         private void BtnMoveBottomCenter_Click(object sender, RoutedEventArgs e)
         {
-
+            if (wbTurn == "White")
+            {
+                return;
+            }
+            if (wbTurn == "Black")
+            {
+                if (pawnID == "BML")
+                {
+                    blackPwnMiddleLeft.Visibility = Visibility.Hidden;
+                    blackPwnBottomCenter.Visibility = Visibility.Visible;
+                    whitePwnBottomCenter.Visibility = Visibility.Hidden;
+                    whiteBottomCenter = false;
+                    blackBottomCenter = true;
+                    blackMiddleLeft = false;
+                    wbTurn = "White";
+                    pawnID = "None";
+                    blackWins = blackWins + 1;
+                    MessageBox.Show("Black wins!", "Black won");
+                }
+                if (pawnID == "BMC")
+                {
+                    blackPwnMiddleCenter.Visibility = Visibility.Hidden;
+                    blackPwnBottomCenter.Visibility = Visibility.Visible;
+                    whiteBottomCenter = true;
+                    whiteMiddleCenter = false;
+                    wbTurn = "White";
+                    pawnID = "None";
+                    blackWins = blackWins + 1;
+                    MessageBox.Show("Black wins!", "Black won");
+                }
+                if (pawnID == "BMR")
+                {
+                    blackPwnMiddleRight.Visibility = Visibility.Hidden;
+                    blackPwnBottomCenter.Visibility = Visibility.Visible;
+                    whitePwnBottomCenter.Visibility = Visibility.Hidden;
+                    whiteBottomCenter = false;
+                    blackMiddleRight = false;
+                    blackBottomCenter = true;
+                    wbTurn = "White";
+                    pawnID = "None";
+                    blackWins = blackWins + 1;
+                    MessageBox.Show("Black wins!", "Black won");
+                }
+            }
         }
 
         private void BtnMoveMiddleCenter_Click(object sender, RoutedEventArgs e)
@@ -461,17 +621,122 @@ namespace Hexapawn
 
         private void BtnMoveTopRight_Click(object sender, RoutedEventArgs e)
         {
-
+            if (wbTurn == "White")
+            {
+                if (pawnID == "WMC")
+                {
+                    whitePwnMiddleCenter.Visibility = Visibility.Hidden;
+                    blackPwnTopRight.Visibility = Visibility.Hidden;
+                    whitePwnTopRight.Visibility = Visibility.Visible;
+                    whiteTopRight = true;
+                    blackTopRight = false;
+                    whiteMiddleCenter = false;
+                    wbTurn = "Black";
+                    pawnID = "None";
+                    whiteWins = whiteWins + 1;
+                    MessageBox.Show("White wins!", "White won");
+                }
+                if (pawnID == "WMR")
+                {
+                    whitePwnMiddleLeft.Visibility = Visibility.Hidden;
+                    whitePwnTopRight.Visibility = Visibility.Visible;
+                    whiteTopRight = true;
+                    whiteMiddleRight = false;
+                    wbTurn = "Black";
+                    pawnID = "None";
+                    whiteWins = whiteWins + 1;
+                    MessageBox.Show("White wins!", "White won");
+                }
+            }
+            else if (wbTurn == "Black")
+            {
+                return;
+            }
         }
 
         private void BtnMoveMiddleRight_Click(object sender, RoutedEventArgs e)
         {
-
+            if (wbTurn == "White")
+            {
+                if (pawnID == "WBR")
+                {
+                    whitePwnBottomRight.Visibility = Visibility.Hidden;
+                    whitePwnMiddleRight.Visibility = Visibility.Visible;
+                    whiteMiddleRight = true;
+                    whiteBottomRight = false;
+                    wbTurn = "Black";
+                    pawnID = "None";
+                }
+                if (pawnID == "WBC")
+                {
+                    whitePwnBottomCenter.Visibility = Visibility.Hidden;
+                    blackPwnMiddleRight.Visibility = Visibility.Hidden;
+                    whitePwnMiddleRight.Visibility = Visibility.Visible;
+                    whiteMiddleRight = true;
+                    blackMiddleRight = false;
+                    whiteBottomRight = false;
+                    wbTurn = "Black";
+                    pawnID = "None";
+                }
+            }
+            else if (wbTurn == "Black")
+            {
+                if (pawnID == "BTR")
+                {
+                    blackPwnTopRight.Visibility = Visibility.Hidden;
+                    blackPwnMiddleRight.Visibility = Visibility.Visible;
+                    blackTopRight = false;
+                    blackMiddleRight = true;
+                    wbTurn = "White";
+                    pawnID = "None";
+                }
+                if (pawnID == "BTC")
+                {
+                    blackPwnTopCenter.Visibility = Visibility.Hidden;
+                    blackPwnMiddleRight.Visibility = Visibility.Visible;
+                    whitePwnMiddleRight.Visibility = Visibility.Hidden;
+                    blackMiddleRight = true;
+                    blackTopCenter = false;
+                    whiteMiddleRight = false;
+                    wbTurn = "White";
+                    pawnID = "None";
+                }
+            }
         }
 
         private void BtnMoveBottomRight_Click(object sender, RoutedEventArgs e)
         {
-
+            if (wbTurn == "White")
+            {
+                return;
+            }
+            if (wbTurn == "Black")
+            {
+                if (pawnID == "BMR")
+                {
+                    blackPwnMiddleRight.Visibility = Visibility.Hidden;
+                    blackPwnBottomRight.Visibility = Visibility.Visible;
+                    blackMiddleRight = false;
+                    blackBottomRight = true;
+                    wbTurn = "White";
+                    pawnID = "None";
+                    blackWins = blackWins + 1;
+                    MessageBox.Show("Black wins!", "Black won");
+                }
+                if (pawnID == "BMC")
+                {
+                    blackPwnMiddleCenter.Visibility = Visibility.Hidden;
+                    blackPwnBottomRight.Visibility = Visibility.Visible;
+                    whitePwnBottomRight.Visibility = Visibility.Hidden;
+                    whiteBottomRight = false;
+                    blackMiddleCenter = false;
+                    blackBottomRight = true;
+                    wbTurn = "White";
+                    pawnID = "None";
+                    blackWins = blackWins + 1;
+                    MessageBox.Show("Black wins!", "Black won");
+                }
+            }
         }
     }
 }
