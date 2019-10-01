@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 
+
 namespace Hexapawn
 {
     /// <summary>
@@ -48,6 +49,7 @@ namespace Hexapawn
             whitePwnMiddleCenter.Visibility = Visibility.Hidden;
             whitePwnMiddleRight.Visibility = Visibility.Hidden;
             hideAllMoves();
+            AI2.boot();
         }
 
         private void resetGame()
@@ -857,6 +859,9 @@ namespace Hexapawn
                     blackMiddleCenter = false;
                     whiteMiddleCenter = true;
                     whiteBottomRight = false;
+                    wbTurn = "Black";
+                    pawnID = "None";
+                    moveChecker(e);
                 }
             }
             else if (wbTurn == "Black")
