@@ -30,7 +30,6 @@ C:\Users\Brinks\Documents\Hexapawn_a\Hexapawn\obj\Debug\Hexapawn.pdb
 C:\Users\User\Documents\hexapawn\Hexapawn\bin\Debug\Hexapawn.exe.config
 C:\Users\User\Documents\hexapawn\Hexapawn\bin\Debug\Hexapawn.exe
 C:\Users\User\Documents\hexapawn\Hexapawn\bin\Debug\Hexapawn.pdb
-C:\Users\User\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.csprojAssemblyReference.cache
 C:\Users\User\Documents\hexapawn\Hexapawn\obj\Debug\MainWindow.baml
 C:\Users\User\Documents\hexapawn\Hexapawn\obj\Debug\MainWindow.g.cs
 C:\Users\User\Documents\hexapawn\Hexapawn\obj\Debug\App.g.cs
@@ -41,3 +40,4 @@ C:\Users\User\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.csproj.GenerateReso
 C:\Users\User\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.exe
 C:\Users\User\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.pdb
+C:\Users\User\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.csprojAssemblyReference.cache
