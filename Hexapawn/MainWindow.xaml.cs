@@ -234,7 +234,8 @@ namespace Hexapawn
                     if (whiteBottomLeft == true)
                     {
                         pawnID = "WBL";
-                        if (blackMiddleLeft == false)
+                        if (blackMiddleLeft == false && whiteMiddleLeft == false)
+
                         {
                             moveDotMiddleLeft.Visibility = Visibility.Visible;
                             btnMoveMiddleLeft.Visibility = Visibility.Visible;
@@ -333,7 +334,7 @@ namespace Hexapawn
                     pawnID = "BTL";
                     if (blackTopLeft == true)
                     {
-                        if (whiteMiddleLeft == false)
+                        if (whiteMiddleLeft == false && blackMiddleLeft == false)
                         {
                             moveDotMiddleLeft.Visibility = Visibility.Visible;
                             btnMoveMiddleLeft.Visibility = Visibility.Visible;
@@ -369,7 +370,7 @@ namespace Hexapawn
                     pawnID = "WBC";
                     if (whiteBottomCenter == true)
                     {
-                        if (blackMiddleCenter == false)
+                        if (blackMiddleCenter == false && whiteMiddleCenter == false)
                         {
                             moveDotMiddleCenter.Visibility = Visibility.Visible;
                             btnMoveMiddleCenter.Visibility = Visibility.Visible;
@@ -485,7 +486,7 @@ namespace Hexapawn
                     pawnID = "BTC";
                     if (blackTopCenter == true)
                     {
-                        if (whiteMiddleCenter == false)
+                        if (whiteMiddleCenter == false && blackMiddleCenter == false)
                         {
                             moveDotMiddleCenter.Visibility = Visibility.Visible;
                             btnMoveMiddleCenter.Visibility = Visibility.Visible;
@@ -530,7 +531,7 @@ namespace Hexapawn
                     pawnID = "BTR";
                     if (blackTopRight == true)
                     {
-                        if (whiteMiddleRight == false)
+                        if (whiteMiddleRight == false && blackMiddleRight)
                         {
                             moveDotMiddleRight.Visibility = Visibility.Visible;
                             btnMoveMiddleRight.Visibility = Visibility.Visible;
@@ -619,7 +620,7 @@ namespace Hexapawn
                     pawnID = "WBR";
                     if (whiteBottomRight == true)
                     {
-                        if (blackMiddleRight == false)
+                        if (blackMiddleRight == false && whiteMiddleRight == false)
                         {
                             moveDotMiddleRight.Visibility = Visibility.Visible;
                             btnMoveMiddleRight.Visibility = Visibility.Visible;
