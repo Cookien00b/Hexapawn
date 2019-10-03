@@ -64,10 +64,10 @@ namespace Hexapawn
 
         static int generation;
 
-
         public static void boot()
         {
             load();
+            box1_clac();
         }
 
 
@@ -232,6 +232,28 @@ namespace Hexapawn
             box48 = Convert.ToInt32(box48string);
 
             tr.Close();
+        }
+
+        private static void box1_clac()
+        {
+            Random rnd = new Random();
+            int chance = box1 + box2 + box3;
+            int choice = rnd.Next(1, chance + 1);
+
+            if (choice <= box1)
+            {
+                MessageBox.Show("box1");
+            }
+            else if (choice <= box1 + box2)
+            {
+                MessageBox.Show("box2");
+            }
+            else if (choice <= box1 + box2 + box3)
+            {
+                MessageBox.Show("box3");
+            }
+
+
         }
     }
 }
