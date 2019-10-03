@@ -37,6 +37,30 @@ namespace Hexapawn
         static int box22;
         static int box23;
         static int box24;
+        static int box25;
+        static int box26;
+        static int box27;
+        static int box28;
+        static int box29;
+        static int box30;
+        static int box31;
+        static int box32;
+        static int box33;
+        static int box34;
+        static int box35;
+        static int box36;
+        static int box37;
+        static int box38;
+        static int box39;
+        static int box40;
+        static int box41;
+        static int box42;
+        static int box43;
+        static int box44;
+        static int box45;
+        static int box46;
+        static int box47;
+        static int box48;
 
         static int generation;
 
@@ -75,6 +99,31 @@ namespace Hexapawn
             tw.WriteLine(box22);
             tw.WriteLine(box23);
             tw.WriteLine(box24);
+            tw.WriteLine(box25);
+            tw.WriteLine(box26);
+            tw.WriteLine(box27);
+            tw.WriteLine(box28);
+            tw.WriteLine(box29);
+            tw.WriteLine(box30);
+            tw.WriteLine(box31);
+            tw.WriteLine(box32);
+            tw.WriteLine(box33);
+            tw.WriteLine(box34);
+            tw.WriteLine(box35);
+            tw.WriteLine(box36);
+            tw.WriteLine(box37);
+            tw.WriteLine(box38);
+            tw.WriteLine(box39);
+            tw.WriteLine(box40);
+            tw.WriteLine(box41);
+            tw.WriteLine(box42);
+            tw.WriteLine(box43);
+            tw.WriteLine(box44);
+            tw.WriteLine(box45);
+            tw.WriteLine(box46);
+            tw.WriteLine(box47);
+            tw.WriteLine(box48);
+
 
 
             tw.Close();
@@ -107,6 +156,31 @@ namespace Hexapawn
             string box22string = tr.ReadLine();
             string box23string = tr.ReadLine();
             string box24string = tr.ReadLine();
+            string box25string = tr.ReadLine();
+            string box26string = tr.ReadLine();
+            string box27string = tr.ReadLine();
+            string box28string = tr.ReadLine();
+            string box29string = tr.ReadLine();
+            string box30string = tr.ReadLine();
+            string box31string = tr.ReadLine();
+            string box32string = tr.ReadLine();
+            string box33string = tr.ReadLine();
+            string box34string = tr.ReadLine();
+            string box35string = tr.ReadLine();
+            string box36string = tr.ReadLine();
+            string box37string = tr.ReadLine();
+            string box38string = tr.ReadLine();
+            string box39string = tr.ReadLine();
+            string box40string = tr.ReadLine();
+            string box41string = tr.ReadLine();
+            string box42string = tr.ReadLine();
+            string box43string = tr.ReadLine();
+            string box44string = tr.ReadLine();
+            string box45string = tr.ReadLine();
+            string box46string = tr.ReadLine();
+            string box47string = tr.ReadLine();
+            string box48string = tr.ReadLine();
+
 
             box1 = Convert.ToInt32(box1string);
             box2 = Convert.ToInt32(box2string);
@@ -132,6 +206,30 @@ namespace Hexapawn
             box22 = Convert.ToInt32(box22string);
             box23 = Convert.ToInt32(box23string);
             box24 = Convert.ToInt32(box24string);
+            box25 = Convert.ToInt32(box25string);
+            box26 = Convert.ToInt32(box26string);
+            box27 = Convert.ToInt32(box27string);
+            box28 = Convert.ToInt32(box28string);
+            box29 = Convert.ToInt32(box29string);
+            box30 = Convert.ToInt32(box30string);
+            box31 = Convert.ToInt32(box31string);
+            box32 = Convert.ToInt32(box32string);
+            box33 = Convert.ToInt32(box33string);
+            box34 = Convert.ToInt32(box34string);
+            box35 = Convert.ToInt32(box35string);
+            box36 = Convert.ToInt32(box36string);
+            box37 = Convert.ToInt32(box37string);
+            box38 = Convert.ToInt32(box38string);
+            box39 = Convert.ToInt32(box39string);
+            box40 = Convert.ToInt32(box40string);
+            box41 = Convert.ToInt32(box41string);
+            box42 = Convert.ToInt32(box42string);
+            box43 = Convert.ToInt32(box43string);
+            box44 = Convert.ToInt32(box44string);
+            box45 = Convert.ToInt32(box45string);
+            box46 = Convert.ToInt32(box46string);
+            box47 = Convert.ToInt32(box47string);
+            box48 = Convert.ToInt32(box48string);
 
             tr.Close();
         }
