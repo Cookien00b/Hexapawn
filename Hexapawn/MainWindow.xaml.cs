@@ -531,7 +531,7 @@ namespace Hexapawn
                     pawnID = "BTR";
                     if (blackTopRight == true)
                     {
-                        if (whiteMiddleRight == false && blackMiddleRight)
+                        if (whiteMiddleRight == false && blackMiddleRight == false)
                         {
                             moveDotMiddleRight.Visibility = Visibility.Visible;
                             btnMoveMiddleRight.Visibility = Visibility.Visible;
