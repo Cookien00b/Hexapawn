@@ -4,8 +4,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        MinHeight="350" MinWidth="325">
+        Title="Hexapawn" Height="450" Width="800"
+        MinHeight="350" MinWidth="325"
+        SizeToContent="WidthAndHeight"
+        >
     <Grid>
         <Grid Width="300" Height="300">
             <Grid.ColumnDefinitions>
