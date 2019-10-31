@@ -97,6 +97,7 @@ namespace Hexapawn
             blackPwnTopCenter.Visibility = Visibility.Visible;
             blackPwnTopRight.Visibility = Visibility.Visible;
             hideAllMoves();
+            AI2.boot();
         }
 
         private void hideAllMoves()
@@ -212,6 +213,10 @@ namespace Hexapawn
                     whiteWins = whiteWins + 1;
                     resetGame();
                 }
+            }
+            else
+            {
+                AI2.boot();
             }
         }
 
@@ -697,6 +702,7 @@ namespace Hexapawn
                     wbTurn = "Black";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
                 else if (pawnID == "WBC")
                 {
@@ -710,6 +716,7 @@ namespace Hexapawn
                     wbTurn = "Black";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
             }
             else if (wbTurn == "Black")
@@ -725,6 +732,7 @@ namespace Hexapawn
                     wbTurn = "White";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
                 if (pawnID == "BTL")
                 {
@@ -735,6 +743,7 @@ namespace Hexapawn
                     wbTurn = "White";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
             }
         }
@@ -841,6 +850,7 @@ namespace Hexapawn
                     wbTurn = "Black";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
                 else if (pawnID == "WBC")
                 {
@@ -851,6 +861,7 @@ namespace Hexapawn
                     wbTurn = "Black";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
                 else if (pawnID == "WBR")
                 {
@@ -863,6 +874,7 @@ namespace Hexapawn
                     wbTurn = "Black";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
             }
             else if (wbTurn == "Black")
@@ -878,6 +890,7 @@ namespace Hexapawn
                     wbTurn = "White";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
                 else if (pawnID == "BTC")
                 {
@@ -888,6 +901,7 @@ namespace Hexapawn
                     wbTurn = "White";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
                 else if (pawnID == "BTR")
                 {
@@ -900,6 +914,7 @@ namespace Hexapawn
                     wbTurn = "White";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
             }
         }
@@ -1009,6 +1024,7 @@ namespace Hexapawn
                     wbTurn = "Black";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
                 if (pawnID == "WBC")
                 {
@@ -1021,6 +1037,7 @@ namespace Hexapawn
                     wbTurn = "Black";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
             }
             else if (wbTurn == "Black")
@@ -1034,6 +1051,7 @@ namespace Hexapawn
                     wbTurn = "White";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
                 if (pawnID == "BTC")
                 {
@@ -1046,6 +1064,7 @@ namespace Hexapawn
                     wbTurn = "White";
                     pawnID = "None";
                     moveChecker(e);
+                    AI2.boot();
                 }
             }
         }

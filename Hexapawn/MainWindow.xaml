@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Hexapawn.AI2="Hexapawn.AI2"
         mc:Ignorable="d"
+        WindowState="Maximized"
+        WindowStyle="None"
         Title="MainWindow" Height="450" Width="800"
         MinHeight="350" MinWidth="325">
     <Grid Background="#25242b">
