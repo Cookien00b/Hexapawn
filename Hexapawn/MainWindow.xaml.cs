@@ -99,6 +99,8 @@ namespace Hexapawn
             AI2.B2 = true;
             AI2.B3 = true;
 
+            AI2.moveSucces = false;
+
             blackPwnBottomLeft.Visibility = Visibility.Hidden;
             blackPwnMiddleLeft.Visibility = Visibility.Hidden;
             blackPwnBottomCenter.Visibility = Visibility.Hidden;
@@ -681,9 +683,10 @@ namespace Hexapawn
                 {
                     blackPwnMiddleLeft.Visibility = Visibility.Hidden;
                     blackPwnBottomLeft.Visibility = Visibility.Visible;
-                    blackMiddleLeft = false;
+                    blackMiddleLeft = false; AI2.B4 = false;
                     blackBottomLeft = true;
                     wbTurn = "White";
+                    AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
                     blackWins = blackWins + 1;
@@ -695,10 +698,11 @@ namespace Hexapawn
                     blackPwnMiddleCenter.Visibility = Visibility.Hidden;
                     blackPwnBottomLeft.Visibility = Visibility.Visible;
                     whitePwnBottomLeft.Visibility = Visibility.Hidden;
-                    blackMiddleCenter = false;
-                    whiteBottomLeft = false;
+                    blackMiddleCenter = false; AI2.B5 = false;
+                    whiteBottomLeft = false; AI2.W7 = false;
                     blackBottomLeft = true;
                     wbTurn = "White";
+                    AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
                     blackWins = blackWins + 1;
@@ -718,9 +722,9 @@ namespace Hexapawn
                     hideAllMoves();
                     whitePwnBottomLeft.Visibility = Visibility.Hidden;
                     whitePwnMiddleLeft.Visibility = Visibility.Visible;
-                    whiteBottomLeft = false;
-                    whiteMiddleLeft = true;
-                    wbTurn = "Black";
+                    whiteBottomLeft = false; AI2.W7 = false;
+                    whiteMiddleLeft = true; AI2.W4 = true;
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
                     AI2.boot();
@@ -731,10 +735,10 @@ namespace Hexapawn
                     whitePwnBottomCenter.Visibility = Visibility.Hidden;
                     blackPwnMiddleLeft.Visibility = Visibility.Hidden;
                     whitePwnMiddleLeft.Visibility = Visibility.Visible;
-                    whiteBottomCenter = false;
-                    whiteMiddleLeft = true;
-                    blackMiddleLeft = false;
-                    wbTurn = "Black";
+                    whiteBottomCenter = false; AI2.W8 = false;
+                    whiteMiddleLeft = true; AI2.W4 = true;
+                    blackMiddleLeft = false; AI2.B4 = false;
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
                     AI2.boot();
@@ -747,10 +751,11 @@ namespace Hexapawn
                     blackPwnTopCenter.Visibility = Visibility.Hidden;
                     blackPwnMiddleLeft.Visibility = Visibility.Visible;
                     whitePwnMiddleLeft.Visibility = Visibility.Hidden;
-                    blackTopCenter = false;
-                    whiteMiddleLeft = false;
-                    blackMiddleLeft = true;
+                    blackTopCenter = false; AI2.B2 = false;
+                    whiteMiddleLeft = false; AI2.W4 = false;
+                    blackMiddleLeft = true; AI2.B4 = true;
                     wbTurn = "White";
+                    AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
                     AI2.boot();
@@ -759,8 +764,8 @@ namespace Hexapawn
                 {
                     blackPwnTopLeft.Visibility = Visibility.Hidden;
                     blackPwnMiddleLeft.Visibility = Visibility.Visible;
-                    blackTopLeft = false;
-                    blackMiddleLeft = true;
+                    blackTopLeft = false; AI2.B1 = false;
+                    blackMiddleLeft = true; AI2.B4 = true;
                     wbTurn = "White";
                     pawnID = "None";
                     moveChecker(e);
@@ -778,9 +783,9 @@ namespace Hexapawn
                 {
                     whitePwnMiddleLeft.Visibility = Visibility.Hidden;
                     whitePwnTopLeft.Visibility = Visibility.Visible;
-                    whiteMiddleLeft = false;
+                    whiteMiddleLeft = false; AI2.W4 = false;
                     whiteTopLeft = true;
-                    wbTurn = "Black";
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     MessageBox.Show("White wins!", "White won");
@@ -791,10 +796,10 @@ namespace Hexapawn
                     whitePwnMiddleCenter.Visibility = Visibility.Hidden;
                     whitePwnTopLeft.Visibility = Visibility.Visible;
                     blackPwnTopLeft.Visibility = Visibility.Hidden;
-                    blackTopLeft = false;
+                    blackTopLeft = false; AI2.B1 = false;
                     whiteTopLeft = true;
-                    blackTopLeft = false;
-                    wbTurn = "Black";
+                    whiteMiddleCenter = false; AI2.W5 = false;
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     MessageBox.Show("White wins!", "White won");
@@ -817,10 +822,10 @@ namespace Hexapawn
                     blackPwnMiddleLeft.Visibility = Visibility.Hidden;
                     blackPwnBottomCenter.Visibility = Visibility.Visible;
                     whitePwnBottomCenter.Visibility = Visibility.Hidden;
-                    whiteBottomCenter = false;
+                    whiteBottomCenter = false; AI2.W8 = false;
                     blackBottomCenter = true;
-                    blackMiddleLeft = false;
-                    wbTurn = "White";
+                    blackMiddleLeft = false; AI2.B4 = false;
+                    wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None"; 
                     blackWins = blackWins + 1;
                     MessageBox.Show("Black wins!", "Black won");
@@ -831,8 +836,8 @@ namespace Hexapawn
                     blackPwnMiddleCenter.Visibility = Visibility.Hidden;
                     blackPwnBottomCenter.Visibility = Visibility.Visible;
                     whiteBottomCenter = true;
-                    whiteMiddleCenter = false;
-                    wbTurn = "White";
+                    whiteMiddleCenter = false; AI2.W5 = false;
+                    wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     blackWins = blackWins + 1;
                     MessageBox.Show("Black wins!", "Black won");
@@ -843,10 +848,10 @@ namespace Hexapawn
                     blackPwnMiddleRight.Visibility = Visibility.Hidden;
                     blackPwnBottomCenter.Visibility = Visibility.Visible;
                     whitePwnBottomCenter.Visibility = Visibility.Hidden;
-                    whiteBottomCenter = false;
-                    blackMiddleRight = false;
+                    whiteBottomCenter = false; AI2.W8 = false;
+                    blackMiddleRight = false; AI2.B6 = false;
                     blackBottomCenter = true;
-                    wbTurn = "White";
+                    wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     blackWins = blackWins + 1;
                     MessageBox.Show("Black wins!", "Black won");
@@ -865,10 +870,10 @@ namespace Hexapawn
                     whitePwnBottomLeft.Visibility = Visibility.Hidden;
                     whitePwnMiddleCenter.Visibility = Visibility.Visible;
                     blackPwnMiddleCenter.Visibility = Visibility.Hidden;
-                    whiteMiddleCenter = true;
-                    whiteBottomLeft = false;
-                    blackMiddleCenter = false;
-                    wbTurn = "Black";
+                    whiteMiddleCenter = true; AI2.W5 = true;
+                    whiteBottomLeft = false; AI2.W7 = false;
+                    blackMiddleCenter = false; AI2.B5 = false;
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
                     AI2.boot();
@@ -877,9 +882,9 @@ namespace Hexapawn
                 {
                     whitePwnBottomCenter.Visibility = Visibility.Hidden;
                     whitePwnMiddleCenter.Visibility = Visibility.Visible;
-                    whiteBottomCenter = false;
-                    whiteMiddleCenter = true;
-                    wbTurn = "Black";
+                    whiteBottomCenter = false; AI2.W8 = false;
+                    whiteMiddleCenter = true; AI2.W5 = true;
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
                     AI2.boot();
@@ -889,10 +894,10 @@ namespace Hexapawn
                     whitePwnBottomRight.Visibility = Visibility.Hidden;
                     whitePwnMiddleCenter.Visibility = Visibility.Visible;
                     blackPwnMiddleCenter.Visibility = Visibility.Hidden;
-                    blackMiddleCenter = false;
-                    whiteMiddleCenter = true;
-                    whiteBottomRight = false;
-                    wbTurn = "Black";
+                    blackMiddleCenter = false; AI2.B5 = false;
+                    whiteMiddleCenter = true; AI2.W5 = true;
+                    whiteBottomRight = false; AI2.W9 = false;
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
                     AI2.boot();
@@ -905,10 +910,10 @@ namespace Hexapawn
                     blackPwnTopLeft.Visibility = Visibility.Hidden;
                     blackPwnMiddleCenter.Visibility = Visibility.Visible;
                     whitePwnMiddleCenter.Visibility = Visibility.Hidden;
-                    whiteMiddleCenter = false;
-                    blackMiddleCenter = true;
-                    blackTopLeft = false;
-                    wbTurn = "White";
+                    whiteMiddleCenter = false; AI2.W5 = false;
+                    blackMiddleCenter = true; AI2.B5 = true;
+                    blackTopLeft = false; AI2.B1 = false;
+                    wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
                     AI2.boot();
@@ -917,9 +922,9 @@ namespace Hexapawn
                 {
                     blackPwnTopCenter.Visibility = Visibility.Hidden;
                     blackPwnMiddleCenter.Visibility = Visibility.Visible;
-                    blackTopCenter = false;
-                    blackMiddleCenter = true;
-                    wbTurn = "White";
+                    blackTopCenter = false; AI2.B2 = false;
+                    blackMiddleCenter = true; AI2.B5 = true;
+                    wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
                     AI2.boot();
@@ -929,10 +934,10 @@ namespace Hexapawn
                     blackPwnTopRight.Visibility = Visibility.Hidden;
                     blackPwnMiddleCenter.Visibility = Visibility.Visible;
                     whitePwnMiddleCenter.Visibility = Visibility.Hidden;
-                    whiteMiddleCenter = false;
+                    whiteMiddleCenter = false; AI2.W5 = false;
                     blackMiddleCenter = true;
-                    blackTopRight = false;
-                    wbTurn = "White";
+                    blackTopRight = false; AI2.B3 = false;
+                    wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
                     AI2.boot();
@@ -950,10 +955,10 @@ namespace Hexapawn
                     whitePwnTopCenter.Visibility = Visibility.Hidden;
                     whitePwnTopCenter.Visibility = Visibility.Visible;
                     blackPwnTopCenter.Visibility = Visibility.Hidden;
-                    blackTopCenter = false;
+                    blackTopCenter = false; AI2.B2 = false;
                     whiteTopCenter = true;
-                    whiteMiddleLeft = false;
-                    wbTurn = "Black";
+                    whiteMiddleLeft = false; AI2.W4 = false;
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     MessageBox.Show("White wins!", "White won");
@@ -963,9 +968,9 @@ namespace Hexapawn
                 {
                     whitePwnTopCenter.Visibility = Visibility.Visible;
                     whitePwnMiddleCenter.Visibility = Visibility.Hidden;
-                    whiteMiddleCenter = false;
+                    whiteMiddleCenter = false; AI2.W5 = false;
                     whiteTopCenter = true;
-                    wbTurn = "Black";
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     MessageBox.Show("White wins!", "White won");
@@ -977,9 +982,9 @@ namespace Hexapawn
                     blackPwnTopCenter.Visibility = Visibility.Hidden;
                     whitePwnTopCenter.Visibility = Visibility.Visible;
                     whiteTopCenter = true;
-                    whiteMiddleRight = false;
-                    blackTopCenter = false;
-                    wbTurn = "Black";
+                    whiteMiddleRight = false; AI2.W6 = false;
+                    blackTopCenter = false; AI2.B2 = false;
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     MessageBox.Show("White wins!", "White won");
@@ -1004,9 +1009,9 @@ namespace Hexapawn
                     blackPwnTopRight.Visibility = Visibility.Hidden;
                     whitePwnTopRight.Visibility = Visibility.Visible;
                     whiteTopRight = true;
-                    blackTopRight = false;
-                    whiteMiddleCenter = false;
-                    wbTurn = "Black";
+                    blackTopRight = false; AI2.B3 = false;
+                    whiteMiddleCenter = false; AI2.W5 = false;
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     MessageBox.Show("White wins!", "White won");
@@ -1017,8 +1022,8 @@ namespace Hexapawn
                     whitePwnMiddleLeft.Visibility = Visibility.Hidden;
                     whitePwnTopRight.Visibility = Visibility.Visible;
                     whiteTopRight = true;
-                    whiteMiddleRight = false;
-                    wbTurn = "Black";
+                    whiteMiddleRight = false; AI2.W6 = false;
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     MessageBox.Show("White wins!", "White won");
@@ -1040,9 +1045,9 @@ namespace Hexapawn
                 {
                     whitePwnBottomRight.Visibility = Visibility.Hidden;
                     whitePwnMiddleRight.Visibility = Visibility.Visible;
-                    whiteMiddleRight = true;
-                    whiteBottomRight = false;
-                    wbTurn = "Black";
+                    whiteMiddleRight = true; AI2.W6 = true;
+                    whiteBottomRight = false; AI2.W9 = false;
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
                     AI2.boot();
@@ -1052,10 +1057,10 @@ namespace Hexapawn
                     whitePwnBottomCenter.Visibility = Visibility.Hidden;
                     blackPwnMiddleRight.Visibility = Visibility.Hidden;
                     whitePwnMiddleRight.Visibility = Visibility.Visible;
-                    whiteMiddleRight = true;
-                    blackMiddleRight = false;
-                    whiteBottomCenter = false;
-                    wbTurn = "Black";
+                    whiteMiddleRight = true; AI2.W6 = true;
+                    blackMiddleRight = false; AI2.B6 = false;
+                    whiteBottomCenter = false; AI2.W8 = false;
+                    wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
                     AI2.boot();
@@ -1067,9 +1072,9 @@ namespace Hexapawn
                 {
                     blackPwnTopRight.Visibility = Visibility.Hidden;
                     blackPwnMiddleRight.Visibility = Visibility.Visible;
-                    blackTopRight = false;
+                    blackTopRight = false; AI2.B3 = false;
                     blackMiddleRight = true;
-                    wbTurn = "White";
+                    wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
                     AI2.boot();
@@ -1080,9 +1085,9 @@ namespace Hexapawn
                     blackPwnMiddleRight.Visibility = Visibility.Visible;
                     whitePwnMiddleRight.Visibility = Visibility.Hidden;
                     blackMiddleRight = true;
-                    blackTopCenter = false;
-                    whiteMiddleRight = false;
-                    wbTurn = "White";
+                    blackTopCenter = false; AI2.B2 = false;
+                    whiteMiddleRight = false; AI2.W6 = false;
+                    wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
                     AI2.boot();
@@ -1103,9 +1108,9 @@ namespace Hexapawn
                 {
                     blackPwnMiddleRight.Visibility = Visibility.Hidden;
                     blackPwnBottomRight.Visibility = Visibility.Visible;
-                    blackMiddleRight = false;
+                    blackMiddleRight = false; AI2.B6 = false;
                     blackBottomRight = true;
-                    wbTurn = "White";
+                    wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     blackWins = blackWins + 1;
                     MessageBox.Show("Black wins!", "Black won");
@@ -1116,22 +1121,42 @@ namespace Hexapawn
                     blackPwnMiddleCenter.Visibility = Visibility.Hidden;
                     blackPwnBottomRight.Visibility = Visibility.Visible;
                     whitePwnBottomRight.Visibility = Visibility.Hidden;
-                    whiteBottomRight = false;
-                    blackMiddleCenter = false;
+                    whiteBottomRight = false; AI2.W9 = false;
+                    blackMiddleCenter = false; AI2.B5 = false;
                     blackBottomRight = true;
-                    wbTurn = "White";
+                    wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     blackWins = blackWins + 1;
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
             }
+
         }
 
         private void start_Click(object sender, RoutedEventArgs e)
         {
             AI2.boot();
             btnStart.Visibility = Visibility.Hidden;
+        }
+
+        private void disk_Click(object sender, RoutedEventArgs e)
+        {
+            if(sender == btnD)
+            {
+                AI2.folderName = @"d:\aiMem";
+            }
+            if (sender == btnE)
+            {
+                AI2.folderName = @"e:\aiMem";
+            }
+            if (sender == btnF)
+            {
+                AI2.folderName = @"f:\aiMem";
+            }
+            btnD.Visibility = Visibility.Hidden;
+            btnE.Visibility = Visibility.Hidden;
+            btnF.Visibility = Visibility.Hidden;
         }
     }
 }

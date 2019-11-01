@@ -13,6 +13,8 @@ namespace Hexapawn
     {
         public static string lastMove = "74";
         public static string[] match;
+        public static bool moveSucces;
+
 
         public static string turn = "White";
 
@@ -40,45 +42,69 @@ namespace Hexapawn
         static string board;
         static string whiteBoard;
         static string blackBoard;
+        public static bool firstBoot = true;
+        public static string folderName;
         public static void boot()
         {
             pawnCheck();
+            rndPlay();
+        }
+        public static void last2Moves(string lm)
+        {
+            if (lm.Length < 2)
+            {
+                lastMove = lm + lastMove;
+            }
+            else
+            {
+                lastMove = lastMove.Remove(lastMove.Length - 1);
+                lastMove = lm + lastMove;
+            }
         }
         public static void press1()
         {
             LeftMouseClick(850, 400);
+            last2Moves("1");
         }
         public static void press2()
         {
             LeftMouseClick(1050, 400);
+            last2Moves("2");
         }
         public static void press3()
         {
             LeftMouseClick(1250, 400);
+            last2Moves("3");
         }
         public static void press4()
         {
             LeftMouseClick(850, 550);
+            last2Moves("4");
         }
         public static void press5()
         {
             LeftMouseClick(1050, 550);
+            last2Moves("5");
         }
         public static void press6()
         {
             LeftMouseClick(1250, 550);
+            last2Moves("6");
         }
         public static void press7()
         {
             LeftMouseClick(850, 700);
+            last2Moves("7");
         }
         public static void press8()
         {
             LeftMouseClick(1050, 700);
+            last2Moves("8");
         }
         public static void press9()
         {
             LeftMouseClick(1250, 700);
+            last2Moves("9");
         }
 
 
@@ -211,7 +237,15 @@ namespace Hexapawn
 
                 //new move or old move
                 int totalResults = wins + loses;
-                decimal winChance = wins * 100 / totalResults;
+                decimal winChance;
+                try
+                {
+                    winChance = wins * 100 / totalResults;
+                }
+                catch
+                {
+                    winChance = 0;
+                }
 
                 decimal winProcent = Math.Round(winChance, 0);
 
@@ -278,7 +312,7 @@ namespace Hexapawn
                 }
                 else
                 {
-                    //rndPlay();
+                    rndPlay();
                 }
                 
 
@@ -310,31 +344,78 @@ namespace Hexapawn
             {
                 System.IO.Directory.CreateDirectory(pathString);
 
+                rndPlay();
+
                 string fileName = lastMove;
 
                 pathString = System.IO.Path.Combine(pathString, fileName);
 
                 Console.WriteLine("Path to my file: {0}\n", pathString);
 
-                if (!System.IO.File.Exists(pathString))
-                {
-                    using (System.IO.FileStream fs = System.IO.File.Create(pathString))
-                    {
-                        byte[] bytes = Encoding.ASCII.GetBytes("");
-                        fs.Write(bytes, 0, bytes.Length);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("File \"{0}\" already exists.", fileName);
-                    return;
-                }
+                //if (!System.IO.File.Exists(pathString))
+                //{
+                //    using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                //    {
+                //        byte[] bytes = Encoding.ASCII.GetBytes("");
+                //        fs.Write(bytes, 0, bytes.Length);
+                //    }
+                //}
+                //else
+                //{
+                //    Console.WriteLine("File \"{0}\" already exists.", fileName);
+                //    return;
+                //}
             }
             
         }
+        public static void rndPlay()
+        {
+            for (int r = 0; moveSucces != true && r < 10000; r++)
+            {
+
+                    Random rndP = new Random();
+                int rndPress = rndP.Next(1, 10);
+                if (rndPress == 1)
+                {
+                    press1();
+                }
+                if (rndPress == 2)
+                {
+                    press2();
+                }
+                if (rndPress == 3)
+                {
+                    press3();
+                }
+                if (rndPress == 4)
+                {
+                    press4();
+                }
+                if (rndPress == 5)
+                {
+                    press5();
+                }
+                if (rndPress == 6)
+                {
+                    press6();
+                }
+                if (rndPress == 7)
+                {
+                    press7();
+                }
+                if (rndPress == 8)
+                {
+                    press8();
+                }
+                if (rndPress == 9)
+                {
+                    press9();
+                }
+            }
+            moveSucces = false;
+        }
         public static void aiLearn()
         {
-            string folderName = @"D:\aiMem";
 
             string pathString = System.IO.Path.Combine(folderName, board);
 
