@@ -49,7 +49,6 @@ namespace Hexapawn
             whitePwnMiddleCenter.Visibility = Visibility.Hidden;
             whitePwnMiddleRight.Visibility = Visibility.Hidden;
             hideAllMoves();
-            AI2.boot();
         }
 
         private void resetGame()
@@ -77,6 +76,28 @@ namespace Hexapawn
             blackTopLeft = true;
             blackTopCenter = true;
             blackTopRight = true;
+
+            AI2.turn = "White";
+
+            AI2.W7 = true;
+            AI2.W8 = true;
+            AI2.W9 = true;
+            AI2.W4 = false;
+            AI2.W5 = false;
+            AI2.W6 = false;
+            AI2.W1 = false;
+            AI2.W2 = false;
+            AI2.W3 = false;
+
+            AI2.B7 = false;
+            AI2.B8 = false;
+            AI2.B9 = false;
+            AI2.B4 = false;
+            AI2.B5 = false;
+            AI2.B6 = false;
+            AI2.B1 = true;
+            AI2.B2 = true;
+            AI2.B3 = true;
 
             blackPwnBottomLeft.Visibility = Visibility.Hidden;
             blackPwnMiddleLeft.Visibility = Visibility.Hidden;
@@ -1105,6 +1126,12 @@ namespace Hexapawn
                     resetGame();
                 }
             }
+        }
+
+        private void start_Click(object sender, RoutedEventArgs e)
+        {
+            AI2.boot();
+            btnStart.Visibility = Visibility.Hidden;
         }
     }
 }

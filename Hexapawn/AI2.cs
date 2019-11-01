@@ -11,11 +11,16 @@ namespace Hexapawn
 {
     class AI2
     {
+        public static string lastMove = "74";
+        public static string[] match;
+
+        public static string turn = "White";
+
         public static bool W7 = true;
         public static bool W8 = true;
         public static bool W9 = true;
         public static bool W4 = false;
-        public static bool W5= false;
+        public static bool W5 = false;
         public static bool W6 = false;
         public static bool W1 = false;
         public static bool W2 = false;
@@ -37,9 +42,50 @@ namespace Hexapawn
         {
             pawnCheck();
         }
+        public static void press1()
+        {
+            LeftMouseClick(850, 400);
+        }
+        public static void press2()
+        {
+            LeftMouseClick(1050, 400);
+        }
+        public static void press3()
+        {
+            LeftMouseClick(1250, 400);
+        }
+        public static void press4()
+        {
+            LeftMouseClick(850, 550);
+        }
+        public static void press5()
+        {
+            LeftMouseClick(1050, 550);
+        }
+        public static void press6()
+        {
+            LeftMouseClick(1250, 550);
+        }
+        public static void press7()
+        {
+            LeftMouseClick(850, 700);
+        }
+        public static void press8()
+        {
+            LeftMouseClick(1050, 700);
+        }
+        public static void press9()
+        {
+            LeftMouseClick(1250, 700);
+        }
+
 
         public static void pawnCheck()
         {
+            whiteBoard = "";
+            blackBoard = "";
+            board = "";
+
             if(B1 == true)
                 blackBoard = blackBoard + "1";
             if(B2 == true)
@@ -92,6 +138,8 @@ namespace Hexapawn
                 }
             }
             board = blackBoard + whiteBoard;
+            if ()
+            aiThink();
         }
         //This is a replacement for Cursor.Position in WinForms
         [System.Runtime.InteropServices.DllImport("user32.dll")]
@@ -109,6 +157,163 @@ namespace Hexapawn
             SetCursorPos(xpos, ypos);
             mouse_event(MOUSEEVENTF_LEFTDOWN, xpos, ypos, 0, 0);
             mouse_event(MOUSEEVENTF_LEFTUP, xpos, ypos, 0, 0);
+        }
+
+        static void aiThink()
+        {
+            byte[] move;
+
+            string doMove;
+
+            string folderName = @"D:\aiMem";
+
+            string pathString = System.IO.Path.Combine(folderName, board);
+
+            string filePath = System.IO.Path.Combine(pathString, lastMove);
+
+            if (System.IO.File.Exists(filePath))
+            {
+                move = File.ReadAllBytes(filePath);
+                doMove = Encoding.ASCII.GetString(move);
+                play(doMove);
+            }
+
+            System.IO.Directory.CreateDirectory(pathString);
+
+            string fileName = lastMove;
+
+            pathString = System.IO.Path.Combine(pathString, fileName);
+
+            Console.WriteLine("Path to my file: {0}\n", pathString);
+
+            if (!System.IO.File.Exists(pathString))
+            {
+                using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                {
+                    byte[] bytes = Encoding.ASCII.GetBytes(lastMove);
+                    fs.Write(bytes, 0, bytes.Length);
+                }
+            }
+            else
+            {
+                Console.WriteLine("File \"{0}\" already exists.", fileName);
+                return;
+            }
+        }
+        public static void aiLearn()
+        {
+            string folderName = @"D:\aiMem";
+
+            string pathString = System.IO.Path.Combine(folderName, board);
+
+            string fileName = lastMove;
+
+            if (!System.IO.File.Exists(pathString))
+            {
+                using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                {
+                    byte[] bytes = Encoding.ASCII.GetBytes(lastMove);
+                    fs.Write(bytes, 0, bytes.Length);
+                }
+            }
+            else
+            {
+                Console.WriteLine("File \"{0}\" already exists.", fileName);
+                return;
+            }
+
+            try
+            {
+                byte[] readBuffer = System.IO.File.ReadAllBytes(pathString);
+                foreach (byte b in readBuffer)
+                {
+                    Console.Write(b + " ");
+                }
+                Console.WriteLine();
+            }
+            catch (System.IO.IOException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            System.Console.WriteLine("Press ant key to exit.");
+            System.Console.ReadKey();
+        }
+        public static void play(string e)
+        {
+            char firstPress = e[0];
+            char secondPress = e[1];
+            if (firstPress == 1)
+            {
+                press1();
+            }
+            if (firstPress == 2)
+            {
+                press2();
+            }
+            if (firstPress == 3)
+            {
+                press3();
+            }
+            if (firstPress == 4)
+            {
+                press4();
+            }
+            if (firstPress == 5)
+            {
+                press5();
+            }
+            if (firstPress == 6)
+            {
+                press6();
+            }
+            if (firstPress == 7)
+            {
+                press7();
+            }
+            if (firstPress == 8)
+            {
+                press8();
+            }
+            if (firstPress == 9)
+            {
+                press9();
+            }
+            if (secondPress == 1)
+            {
+                press1();
+            }
+            if (secondPress == 2)
+            {
+                press2();
+            }
+            if (secondPress == 3)
+            {
+                press3();
+            }
+            if (secondPress == 4)
+            {
+                press4();
+            }
+            if (secondPress == 5)
+            {
+                press5();
+            }
+            if (secondPress == 6)
+            {
+                press6();
+            }
+            if (secondPress == 7)
+            {
+                press7();
+            }
+            if (secondPress == 8)
+            {
+                press8();
+            }
+            if (secondPress == 9)
+            {
+                press9();
+            }
         }
     }
 }
