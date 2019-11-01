@@ -16,6 +16,8 @@ namespace Hexapawn
 
         public static string turn = "White";
 
+        public static string winsAndLoses;
+
         public static bool W7 = true;
         public static bool W8 = true;
         public static bool W9 = true;
@@ -138,7 +140,7 @@ namespace Hexapawn
                 }
             }
             board = blackBoard + whiteBoard;
-            if ()
+            
             aiThink();
         }
         //This is a replacement for Cursor.Position in WinForms
@@ -159,46 +161,157 @@ namespace Hexapawn
             mouse_event(MOUSEEVENTF_LEFTUP, xpos, ypos, 0, 0);
         }
 
+        private static string[] GetFileNames(string path)
+        {
+            string[] files = Directory.GetFiles(path);
+            for (int i = 0; i < files.Length; i++)
+                files[i] = Path.GetFileName(files[i]);
+            return files;
+        }
+
         static void aiThink()
         {
-            byte[] move;
+            int wins = 0;
+            int loses = 0;
 
             string doMove;
 
-            string folderName = @"D:\aiMem";
+            string folderName = @"e:\aiMem";
 
             string pathString = System.IO.Path.Combine(folderName, board);
 
-            string filePath = System.IO.Path.Combine(pathString, lastMove);
+            string newMove = System.IO.Path.Combine(pathString, lastMove);
 
-            if (System.IO.File.Exists(filePath))
+            if (System.IO.Directory.Exists(pathString))
             {
-                move = File.ReadAllBytes(filePath);
-                doMove = Encoding.ASCII.GetString(move);
-                play(doMove);
-            }
+                //read file names
+                string[] oldMoves = GetFileNames(pathString);
 
-            System.IO.Directory.CreateDirectory(pathString);
-
-            string fileName = lastMove;
-
-            pathString = System.IO.Path.Combine(pathString, fileName);
-
-            Console.WriteLine("Path to my file: {0}\n", pathString);
-
-            if (!System.IO.File.Exists(pathString))
-            {
-                using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                //read wins and loses of all moves
+                winsAndLoses = string.Join("", oldMoves);
+                for (int e = 0; e < oldMoves.Length; e++)
                 {
-                    byte[] bytes = Encoding.ASCII.GetBytes(lastMove);
-                    fs.Write(bytes, 0, bytes.Length);
+                    string filePath = System.IO.Path.Combine(pathString, oldMoves[e]);
+                    byte[] winArray = File.ReadAllBytes(filePath);
+                    winsAndLoses = Encoding.ASCII.GetString(winArray);
                 }
+
+                for (int i = 0; i < winsAndLoses.Length; i++)
+                {
+                    char winOrLose = winsAndLoses[i];
+                    if(winOrLose == 49)
+                    {
+                        wins = wins + 1;
+                    }
+                    else
+                    {
+                        loses = loses + 1;
+                    }
+                }
+
+                //new move or old move
+                int totalResults = wins + loses;
+                decimal winChance = wins * 100 / totalResults;
+
+                decimal winProcent = Math.Round(winChance, 0);
+
+                int newOrOld = Convert.ToInt32(winProcent);
+                List<int> winChancePerMove = new List<int>();
+                int tempChance;
+
+                Random rnd = new Random();
+                int choice = rnd.Next(1, newOrOld + 1);
+                if (choice <= newOrOld)
+                {
+                    for (int j = 0; j < oldMoves.Length; j++)
+                    {
+                        string filePath = System.IO.Path.Combine(pathString, oldMoves[j]);
+                        byte[] winArray = File.ReadAllBytes(filePath);
+                        winsAndLoses = Encoding.ASCII.GetString(winArray);
+
+                        for (int x = 0; x < winsAndLoses.Length; x++)
+                        {
+                            char winOrLose = winsAndLoses[x];
+                            if (winOrLose == 49)
+                            {
+                                wins = wins + 1;
+                            }
+                            else
+                            {
+                                loses = loses + 1;
+                            }
+                            
+                        }
+                        tempChance = wins * 100 / loses;
+                        winChancePerMove.Add(tempChance);
+                    }
+                    int[] winsArray = winChancePerMove.ToArray();
+                    int totalChance;
+                    for (int n = 0; n < winsArray.Length; n++)
+                    {
+                        for (int s = n; s > -1; s--)
+                        {
+
+                        }
+                    }
+                    if (winsArray[n] < )
+
+                }
+                else
+                {
+                    //rndPlay();
+                }
+                
+
+                //Random rnd = new Random();
+                //int chance = box1 + box2 + box3;
+                //int choice = rnd.Next(1, chance + 1);
+
+                //if (choice <= box1)
+                //{
+                //    MessageBox.Show("box1");
+                //}
+                //else if (choice <= box1 + box2)
+                //{
+                //    MessageBox.Show("box2");
+                //}
+                //else if (choice <= box1 + box2 + box3)
+                //{
+                //    MessageBox.Show("box3");
+                //}
+
+
+
+                //if new move do rndPlay();
+                //if old move create a rnd number between 0 and total wins and loses
+                //if it is in the first move do that move etc
+
             }
             else
             {
-                Console.WriteLine("File \"{0}\" already exists.", fileName);
-                return;
+                System.IO.Directory.CreateDirectory(pathString);
+
+                string fileName = lastMove;
+
+                pathString = System.IO.Path.Combine(pathString, fileName);
+
+                Console.WriteLine("Path to my file: {0}\n", pathString);
+
+                if (!System.IO.File.Exists(pathString))
+                {
+                    using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                    {
+                        byte[] bytes = Encoding.ASCII.GetBytes("");
+                        fs.Write(bytes, 0, bytes.Length);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("File \"{0}\" already exists.", fileName);
+                    return;
+                }
             }
+            
         }
         public static void aiLearn()
         {
