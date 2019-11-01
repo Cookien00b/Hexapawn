@@ -246,16 +246,35 @@ namespace Hexapawn
                         winChancePerMove.Add(tempChance);
                     }
                     int[] winsArray = winChancePerMove.ToArray();
-                    int totalChance;
+                    int totalChance = 0;
+
+                    for (int s = winsArray.Length - 1; s >= 0; s--)
+                    {
+                        totalChance = totalChance + winsArray[s];
+                    }
+
+                    int tempCalc = 0;
+                    List<int> winProcentPerMoveList = new List<int>();
                     for (int n = 0; n < winsArray.Length; n++)
                     {
-                        for (int s = n; s > -1; s--)
+                        for (int s = n; s >= 0; s--)
                         {
+                            tempCalc = tempCalc + winsArray[s];
+                        }
+                        winProcentPerMoveList.Add(tempCalc);
+                    }
+                    int[] winProcentPerMove = winProcentPerMoveList.ToArray();
 
+                    Random rnd2 = new Random();
+                    int aiChoice = rnd2.Next(1, totalChance + 1);
+
+                    for (int y = 0; y < oldMoves.Length; y++)
+                    {
+                        if (aiChoice <= winProcentPerMove[y])
+                        {
+                            play(oldMoves[y]);
                         }
                     }
-                    if (winsArray[n] < )
-
                 }
                 else
                 {
@@ -355,75 +374,75 @@ namespace Hexapawn
         {
             char firstPress = e[0];
             char secondPress = e[1];
-            if (firstPress == 1)
+            if (firstPress == 49)
             {
                 press1();
             }
-            if (firstPress == 2)
+            if (firstPress == 50)
             {
                 press2();
             }
-            if (firstPress == 3)
+            if (firstPress == 51)
             {
                 press3();
             }
-            if (firstPress == 4)
+            if (firstPress == 52)
             {
                 press4();
             }
-            if (firstPress == 5)
+            if (firstPress == 53)
             {
                 press5();
             }
-            if (firstPress == 6)
+            if (firstPress == 54)
             {
                 press6();
             }
-            if (firstPress == 7)
+            if (firstPress == 55)
             {
                 press7();
             }
-            if (firstPress == 8)
+            if (firstPress == 56)
             {
                 press8();
             }
-            if (firstPress == 9)
+            if (firstPress == 57)
             {
                 press9();
             }
-            if (secondPress == 1)
+            if (secondPress == 49)
             {
                 press1();
             }
-            if (secondPress == 2)
+            if (secondPress == 50)
             {
                 press2();
             }
-            if (secondPress == 3)
+            if (secondPress == 51)
             {
                 press3();
             }
-            if (secondPress == 4)
+            if (secondPress == 52)
             {
                 press4();
             }
-            if (secondPress == 5)
+            if (secondPress == 53)
             {
                 press5();
             }
-            if (secondPress == 6)
+            if (secondPress == 54)
             {
                 press6();
             }
-            if (secondPress == 7)
+            if (secondPress == 55)
             {
                 press7();
             }
-            if (secondPress == 8)
+            if (secondPress == 56)
             {
                 press8();
             }
-            if (secondPress == 9)
+            if (secondPress == 57)
             {
                 press9();
             }
