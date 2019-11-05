@@ -4,8 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace Hexapawn
 {
@@ -47,11 +49,10 @@ namespace Hexapawn
         public static void boot()
         {
             pawnCheck();
-            rndPlay();
         }
         public static void last2Moves(string lm)
         {
-            if (lm.Length < 2)
+            if (lastMove.Length < 2)
             {
                 lastMove = lm + lastMove;
             }
@@ -61,50 +62,74 @@ namespace Hexapawn
                 lastMove = lm + lastMove;
             }
         }
-        public static void press1()
+
+        public static async Task pressBox()
+        {
+            LeftMouseClick(1000, 600);
+        }
+
+        public static async Task press1()
         {
             LeftMouseClick(850, 400);
             last2Moves("1");
+
+            return;
         }
-        public static void press2()
+        public static async Task press2()
+        {
+            LeftMouseClick(950, 400);
+            last2Moves("2");
+
+            return;
+        }
+        public static async Task press3()
         {
             LeftMouseClick(1050, 400);
-            last2Moves("2");
-        }
-        public static void press3()
-        {
-            LeftMouseClick(1250, 400);
             last2Moves("3");
+
+            return;
         }
-        public static void press4()
+        public static async Task press4()
         {
             LeftMouseClick(850, 550);
             last2Moves("4");
+
+            return;
         }
-        public static void press5()
+        public static async Task press5()
+        {
+            LeftMouseClick(950, 550);
+            last2Moves("5");
+
+            return;
+        }
+        public static async Task press6()
         {
             LeftMouseClick(1050, 550);
-            last2Moves("5");
-        }
-        public static void press6()
-        {
-            LeftMouseClick(1250, 550);
             last2Moves("6");
+
+            return;
         }
-        public static void press7()
+        public static async Task press7()
         {
             LeftMouseClick(850, 700);
             last2Moves("7");
+
+            return;
         }
-        public static void press8()
+        public static async Task press8()
+        {
+            LeftMouseClick(950, 700);
+            last2Moves("8");
+
+            return;
+        }
+        public static async Task press9()
         {
             LeftMouseClick(1050, 700);
-            last2Moves("8");
-        }
-        public static void press9()
-        {
-            LeftMouseClick(1250, 700);
             last2Moves("9");
+
+            return;
         }
 
 
@@ -170,21 +195,22 @@ namespace Hexapawn
             aiThink();
         }
         //This is a replacement for Cursor.Position in WinForms
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        static extern bool SetCursorPos(int x, int y);
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+        public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
+        //Mouse actions
+        private const int MOUSEEVENTF_LEFTDOWN = 0x02;
+        private const int MOUSEEVENTF_LEFTUP = 0x04;
+        private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
+        private const int MOUSEEVENTF_RIGHTUP = 0x10;
 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
-
-        public const int MOUSEEVENTF_LEFTDOWN = 0x02;
-        public const int MOUSEEVENTF_LEFTUP = 0x04;
-
-        //This simulates a left mouse click
-        public static void LeftMouseClick(int xpos, int ypos)
+        [DllImport("user32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool SetCursorPos(uint X, uint Y);
+        public static void LeftMouseClick(uint X, uint Y)
         {
-            SetCursorPos(xpos, ypos);
-            mouse_event(MOUSEEVENTF_LEFTDOWN, xpos, ypos, 0, 0);
-            mouse_event(MOUSEEVENTF_LEFTUP, xpos, ypos, 0, 0);
+            SetCursorPos(X, Y);
+            //Call the imported function with the cursor's current position
+            mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, X, Y, 0, 0);
         }
 
         private static string[] GetFileNames(string path)
@@ -195,14 +221,11 @@ namespace Hexapawn
             return files;
         }
 
-        static void aiThink()
+        static async void aiThink()
         {
             int wins = 0;
             int loses = 0;
 
-            string doMove;
-
-            string folderName = @"e:\aiMem";
 
             string pathString = System.IO.Path.Combine(folderName, board);
 
@@ -312,9 +335,29 @@ namespace Hexapawn
                 }
                 else
                 {
-                    rndPlay();
+                    await rndPlay();
+
+                    string fileName = lastMove;
+
+                    pathString = System.IO.Path.Combine(pathString, fileName);
+
+                    Console.WriteLine("Path to my file: {0}\n", pathString);
+
+                    if (!System.IO.File.Exists(pathString))
+                    {
+                        using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                        {
+                            byte[] bytes = Encoding.ASCII.GetBytes("");
+                            fs.Write(bytes, 0, bytes.Length);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("File \"{0}\" already exists.", fileName);
+                    }
+
                 }
-                
+
 
                 //Random rnd = new Random();
                 //int chance = box1 + box2 + box3;
@@ -344,7 +387,7 @@ namespace Hexapawn
             {
                 System.IO.Directory.CreateDirectory(pathString);
 
-                rndPlay();
+                await rndPlay();
 
                 string fileName = lastMove;
 
@@ -352,65 +395,61 @@ namespace Hexapawn
 
                 Console.WriteLine("Path to my file: {0}\n", pathString);
 
-                //if (!System.IO.File.Exists(pathString))
-                //{
-                //    using (System.IO.FileStream fs = System.IO.File.Create(pathString))
-                //    {
-                //        byte[] bytes = Encoding.ASCII.GetBytes("");
-                //        fs.Write(bytes, 0, bytes.Length);
-                //    }
-                //}
-                //else
-                //{
-                //    Console.WriteLine("File \"{0}\" already exists.", fileName);
-                //    return;
-                //}
+                using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                {
+                    byte[] bytes = Encoding.ASCII.GetBytes("");
+                    fs.Write(bytes, 0, bytes.Length);
+                }
             }
-            
         }
-        public static void rndPlay()
-        {
-            for (int r = 0; moveSucces != true && r < 10000; r++)
-            {
 
-                    Random rndP = new Random();
+        public static async Task rndPlay()
+        {
+            moveSucces = false;
+            for (int g = 0; moveSucces != true && g < 1000; g++)
+            {
+                
+                Random rndP = new Random();
                 int rndPress = rndP.Next(1, 10);
                 if (rndPress == 1)
                 {
-                    press1();
+                    await press1();
                 }
                 if (rndPress == 2)
                 {
-                    press2();
+                    await press2();
                 }
                 if (rndPress == 3)
                 {
-                    press3();
+                    await press3();
                 }
                 if (rndPress == 4)
                 {
-                    press4();
+                    await press4();
                 }
                 if (rndPress == 5)
                 {
-                    press5();
+                    await press5();
                 }
                 if (rndPress == 6)
                 {
-                    press6();
+                    await press6();
                 }
                 if (rndPress == 7)
                 {
-                    press7();
+                    await press7();
                 }
                 if (rndPress == 8)
                 {
-                    press8();
+                    await press8();
                 }
                 if (rndPress == 9)
                 {
-                    press9();
+                    await press9();
                 }
+
+                await Task.Delay(30);
+
             }
             moveSucces = false;
         }

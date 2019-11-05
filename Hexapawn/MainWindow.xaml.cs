@@ -13,7 +13,7 @@ namespace Hexapawn
         int blackWins = 0;
         string wbTurn = "White";
         string pawnID = "None";
-        bool moveAvailable = false;
+        public bool moveAvailable = false;
         bool whiteBottomLeft = true;
         bool whiteBottomCenter = true;
         bool whiteBottomRight = true;
@@ -226,12 +226,14 @@ namespace Hexapawn
             {
                 if (wbTurn == "White")
                 {
+                    AI2.pressBox();
                     MessageBox.Show("White can't move so black won!", "Black won");
                     blackWins = blackWins + 1;
                     resetGame();
                 }
                 if (wbTurn == "Black")
                 {
+                    AI2.pressBox();
                     MessageBox.Show("Black can't move so white won!", "White won");
                     whiteWins = whiteWins + 1;
                     resetGame();
@@ -239,11 +241,11 @@ namespace Hexapawn
             }
             else
             {
-                AI2.boot();
+                
             }
         }
 
-        private void BtnBottomLeft_Click(object sender, RoutedEventArgs e)
+        public void BtnBottomLeft_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (pawnID == "WBL")
@@ -284,7 +286,7 @@ namespace Hexapawn
             }
         }
 
-        private void BtnMiddleLeft_Click(object sender, RoutedEventArgs e)
+        public void BtnMiddleLeft_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (pawnID == "WML")
@@ -339,7 +341,7 @@ namespace Hexapawn
             }
         }
 
-        private void BtnTopLeft_Click(object sender, RoutedEventArgs e)
+        public void BtnTopLeft_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (pawnID == "WTL")
@@ -379,7 +381,7 @@ namespace Hexapawn
             }
         }
 
-        private void BtnBottomCenter_Click(object sender, RoutedEventArgs e)
+        public void BtnBottomCenter_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (pawnID == "WBC")
@@ -425,7 +427,7 @@ namespace Hexapawn
             }
         }
 
-        private void BtnMiddleCenter_Click(object sender, RoutedEventArgs e)
+        public void BtnMiddleCenter_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (pawnID == "WMC")
@@ -491,7 +493,7 @@ namespace Hexapawn
             }
         }
 
-        private void BtnTopCenter_Click(object sender, RoutedEventArgs e)
+        public void BtnTopCenter_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (pawnID == "WTC")
@@ -537,7 +539,7 @@ namespace Hexapawn
             }
         }
 
-        private void BtnTopRight_Click(object sender, RoutedEventArgs e)
+        public void BtnTopRight_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (pawnID == "WTR")
@@ -576,7 +578,7 @@ namespace Hexapawn
             }
         }
 
-        private void BtnMiddleRight_Click(object sender, RoutedEventArgs e)
+        public void BtnMiddleRight_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (pawnID == "WMR")
@@ -630,7 +632,7 @@ namespace Hexapawn
             }
         }
 
-        private void BtnBottomRight_Click(object sender, RoutedEventArgs e)
+        public void BtnBottomRight_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (pawnID == "WBR")
@@ -670,7 +672,7 @@ namespace Hexapawn
         }
 
 
-        private void BtnMoveBottomLeft_Click(object sender, RoutedEventArgs e)
+        public void BtnMoveBottomLeft_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (wbTurn == "White")
@@ -712,7 +714,7 @@ namespace Hexapawn
             }
         }
 
-        private void BtnMoveMiddleLeft_Click(object sender, RoutedEventArgs e)
+        public void BtnMoveMiddleLeft_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (wbTurn == "White")
@@ -727,7 +729,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
                 else if (pawnID == "WBC")
                 {
@@ -741,7 +743,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
             }
             else if (wbTurn == "Black")
@@ -758,7 +760,7 @@ namespace Hexapawn
                     AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
                 if (pawnID == "BTL")
                 {
@@ -769,12 +771,12 @@ namespace Hexapawn
                     wbTurn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
             }
         }
 
-        private void BtnMoveTopLeft_Click(object sender, RoutedEventArgs e)
+        public void BtnMoveTopLeft_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (wbTurn == "White")
@@ -808,7 +810,7 @@ namespace Hexapawn
             }
         }
 
-        private void BtnMoveBottomCenter_Click(object sender, RoutedEventArgs e)
+        public void BtnMoveBottomCenter_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (wbTurn == "White")
@@ -860,7 +862,7 @@ namespace Hexapawn
             }
         }
 
-        private void BtnMoveMiddleCenter_Click(object sender, RoutedEventArgs e)
+        public void BtnMoveMiddleCenter_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (wbTurn == "White")
@@ -876,7 +878,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
                 else if (pawnID == "WBC")
                 {
@@ -887,7 +889,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
                 else if (pawnID == "WBR")
                 {
@@ -900,7 +902,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
             }
             else if (wbTurn == "Black")
@@ -916,7 +918,7 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
                 else if (pawnID == "BTC")
                 {
@@ -927,7 +929,7 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
                 else if (pawnID == "BTR")
                 {
@@ -940,12 +942,12 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
             }
         }
 
-        private void BtnMoveTopCenter_Click(object sender, RoutedEventArgs e)
+        public void BtnMoveTopCenter_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (wbTurn == "White")
@@ -998,7 +1000,7 @@ namespace Hexapawn
             }
         }
 
-        private void BtnMoveTopRight_Click(object sender, RoutedEventArgs e)
+        public void BtnMoveTopRight_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (wbTurn == "White")
@@ -1036,7 +1038,7 @@ namespace Hexapawn
             }
         }
 
-        private void BtnMoveMiddleRight_Click(object sender, RoutedEventArgs e)
+        public void BtnMoveMiddleRight_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (wbTurn == "White")
@@ -1050,7 +1052,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
                 if (pawnID == "WBC")
                 {
@@ -1063,7 +1065,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
             }
             else if (wbTurn == "Black")
@@ -1077,7 +1079,7 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
                 if (pawnID == "BTC")
                 {
@@ -1090,12 +1092,12 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.boot();
+                    AI2.moveSucces = true; AI2.boot();
                 }
             }
         }
 
-        private void BtnMoveBottomRight_Click(object sender, RoutedEventArgs e)
+        public void BtnMoveBottomRight_Click(object sender, RoutedEventArgs e)
         {
             hideAllMoves();
             if (wbTurn == "White")
