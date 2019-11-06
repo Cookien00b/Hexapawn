@@ -14,7 +14,6 @@ namespace Hexapawn
     class AI2
     {
         public static string lastMove = "74";
-        public static string[] match;
         public static bool moveSucces;
 
 
@@ -46,6 +45,11 @@ namespace Hexapawn
         static string blackBoard;
         public static bool firstBoot = true;
         public static string folderName;
+        public static List<string> whiteMatch = new List<string>();
+        public static List<string> blackMatch = new List<string>();
+        public static List<string> whiteMatchBoard = new List<string>();
+        public static List<string> blackMatchBoard = new List<string>();
+
         public static void boot()
         {
             pawnCheck();
@@ -54,82 +58,170 @@ namespace Hexapawn
         {
             if (lastMove.Length < 2)
             {
-                lastMove = lm + lastMove;
+                lastMove = lastMove + lm;
             }
             else
             {
-                lastMove = lastMove.Remove(lastMove.Length - 1);
-                lastMove = lm + lastMove;
+                lastMove = lastMove.Substring(1);
+                lastMove = lastMove + lm;
             }
         }
 
-        public static async Task pressBox()
+        public static async Task pressBox(string w)
         {
+            string[] matchMovesWhite = whiteMatch.ToArray();
+            string[] matchMovesBlack = blackMatch.ToArray();
+
+
+
+            if (w == "White")
+            {
+                for (int wins = 0; wins < matchMovesWhite.Length; wins++)
+                {
+
+                    //get all bytes
+                    //bytes to string
+                    //add 1 or 0 to the string
+                    //string to bytes
+                    //bytes to file
+                    string pathString = System.IO.Path.Combine(folderName, whiteMatchBoard[wins]);
+
+                    string filePath = System.IO.Path.Combine(pathString, whiteMatch[wins]);
+
+                    byte[] winArray = File.ReadAllBytes(filePath);
+                    winsAndLoses = Encoding.ASCII.GetString(winArray);
+                    winsAndLoses = winsAndLoses + "1";
+
+                    using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                    {
+                        byte[] bytes = Encoding.ASCII.GetBytes(winsAndLoses);
+                        fs.Write(bytes, 0, bytes.Length);
+                    }
+                    pathString = System.IO.Path.Combine(folderName, blackMatchBoard[wins]);
+
+                    filePath = System.IO.Path.Combine(pathString, blackMatch[wins]);
+
+                    winArray = File.ReadAllBytes(filePath);
+                    winsAndLoses = Encoding.ASCII.GetString(winArray);
+                    winsAndLoses = winsAndLoses + "0";
+
+                    using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                    {
+                        byte[] bytes = Encoding.ASCII.GetBytes(winsAndLoses);
+                        fs.Write(bytes, 0, bytes.Length);
+                    }
+                }
+            }
+            else if(w == "Black")
+            {
+                for (int wins = 0; wins < matchMovesWhite.Length; wins++)
+                {
+
+                    //get all bytes
+                    //bytes to string
+                    //add 1 or 0 to the string
+                    //string to bytes
+                    //bytes to file
+                    string pathString = System.IO.Path.Combine(folderName, whiteMatchBoard[wins]);
+
+                    string filePath = System.IO.Path.Combine(pathString, whiteMatch[wins]);
+
+                    byte[] winArray = File.ReadAllBytes(filePath);
+                    winsAndLoses = Encoding.ASCII.GetString(winArray);
+                    winsAndLoses = winsAndLoses + "0";
+
+                    using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                    {
+                        byte[] bytes = Encoding.ASCII.GetBytes(winsAndLoses);
+                        fs.Write(bytes, 0, bytes.Length);
+                    }
+                    pathString = System.IO.Path.Combine(folderName, blackMatchBoard[wins]);
+
+                    filePath = System.IO.Path.Combine(pathString, blackMatch[wins]);
+
+                    winArray = File.ReadAllBytes(filePath);
+                    winsAndLoses = Encoding.ASCII.GetString(winArray);
+                    winsAndLoses = winsAndLoses + "1";
+
+                    using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                    {
+                        byte[] bytes = Encoding.ASCII.GetBytes(winsAndLoses);
+                        fs.Write(bytes, 0, bytes.Length);
+                    }
+                }
+            }
+            await Task.Delay(10);
             LeftMouseClick(1000, 600);
+        }
+
+        public static async Task pressStart()
+        {
+            await Task.Delay(10);
+            LeftMouseClick(950, 50);
         }
 
         public static async Task press1()
         {
             LeftMouseClick(850, 400);
             last2Moves("1");
-
-            return;
+            
+            
         }
         public static async Task press2()
         {
             LeftMouseClick(950, 400);
             last2Moves("2");
-
-            return;
+            
+            
         }
         public static async Task press3()
         {
             LeftMouseClick(1050, 400);
             last2Moves("3");
-
-            return;
+            
+            
         }
         public static async Task press4()
         {
             LeftMouseClick(850, 550);
             last2Moves("4");
-
-            return;
+            
+            
         }
         public static async Task press5()
         {
             LeftMouseClick(950, 550);
             last2Moves("5");
-
-            return;
+            
+            
         }
         public static async Task press6()
         {
             LeftMouseClick(1050, 550);
             last2Moves("6");
-
-            return;
+            
+            
         }
         public static async Task press7()
         {
             LeftMouseClick(850, 700);
             last2Moves("7");
-
-            return;
+            
+            
         }
         public static async Task press8()
         {
             LeftMouseClick(950, 700);
             last2Moves("8");
-
-            return;
+            
+            
         }
         public static async Task press9()
         {
             LeftMouseClick(1050, 700);
             last2Moves("9");
-
-            return;
+            
+            
         }
 
 
@@ -190,8 +282,20 @@ namespace Hexapawn
                     blackBoard = "0" + blackBoard;
                 }
             }
-            board = blackBoard + whiteBoard;
-            
+            if (turn == "White")
+            {
+                board = "W" + blackBoard + whiteBoard;
+            }
+            if (turn == "Black")
+            {
+                board = "B" + blackBoard + whiteBoard;
+            }
+
+            if (turn == "White")
+                whiteMatchBoard.Add(board);
+            else
+                blackMatchBoard.Add(board);
+
             aiThink();
         }
         //This is a replacement for Cursor.Position in WinForms
@@ -228,8 +332,6 @@ namespace Hexapawn
 
 
             string pathString = System.IO.Path.Combine(folderName, board);
-
-            string newMove = System.IO.Path.Combine(pathString, lastMove);
 
             if (System.IO.Directory.Exists(pathString))
             {
@@ -337,6 +439,11 @@ namespace Hexapawn
                 {
                     await rndPlay();
 
+                    if (turn == "White")
+                        whiteMatch.Add(lastMove);
+                    else
+                        blackMatch.Add(lastMove);
+
                     string fileName = lastMove;
 
                     pathString = System.IO.Path.Combine(pathString, fileName);
@@ -347,7 +454,7 @@ namespace Hexapawn
                     {
                         using (System.IO.FileStream fs = System.IO.File.Create(pathString))
                         {
-                            byte[] bytes = Encoding.ASCII.GetBytes("");
+                            byte[] bytes = Encoding.ASCII.GetBytes("0");
                             fs.Write(bytes, 0, bytes.Length);
                         }
                     }
@@ -389,6 +496,11 @@ namespace Hexapawn
 
                 await rndPlay();
 
+                if (turn == "White")
+                    whiteMatch.Add(lastMove);
+                else
+                    blackMatch.Add(lastMove);
+
                 string fileName = lastMove;
 
                 pathString = System.IO.Path.Combine(pathString, fileName);
@@ -397,16 +509,17 @@ namespace Hexapawn
 
                 using (System.IO.FileStream fs = System.IO.File.Create(pathString))
                 {
-                    byte[] bytes = Encoding.ASCII.GetBytes("");
+                    byte[] bytes = Encoding.ASCII.GetBytes("0");
                     fs.Write(bytes, 0, bytes.Length);
                 }
             }
+            await pressStart();
         }
 
         public static async Task rndPlay()
         {
             moveSucces = false;
-            for (int g = 0; moveSucces != true && g < 1000; g++)
+            for (int g = 0; moveSucces != true; g++)
             {
                 
                 Random rndP = new Random();
@@ -490,7 +603,7 @@ namespace Hexapawn
             System.Console.WriteLine("Press ant key to exit.");
             System.Console.ReadKey();
         }
-        public static void play(string e)
+        public static async Task play(string e)
         {
             char firstPress = e[0];
             char secondPress = e[1];
@@ -530,6 +643,9 @@ namespace Hexapawn
             {
                 press9();
             }
+
+            Task.Delay(30);
+
             if (secondPress == 49)
             {
                 press1();
@@ -566,6 +682,12 @@ namespace Hexapawn
             {
                 press9();
             }
+
+            if (turn == "White")
+                whiteMatch.Add(lastMove);
+            else
+                blackMatch.Add(lastMove);
         }
+
     }
 }

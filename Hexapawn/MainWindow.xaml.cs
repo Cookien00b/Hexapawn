@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 
 
@@ -120,6 +121,8 @@ namespace Hexapawn
             blackPwnTopCenter.Visibility = Visibility.Visible;
             blackPwnTopRight.Visibility = Visibility.Visible;
             hideAllMoves();
+            AI2.whiteMatch = new List<string>();
+            AI2.blackMatch = new List<string>();
             AI2.boot();
         }
 
@@ -226,14 +229,14 @@ namespace Hexapawn
             {
                 if (wbTurn == "White")
                 {
-                    AI2.pressBox();
+                    AI2.pressBox("Black");
                     MessageBox.Show("White can't move so black won!", "Black won");
                     blackWins = blackWins + 1;
                     resetGame();
                 }
                 if (wbTurn == "Black")
                 {
-                    AI2.pressBox();
+                    AI2.pressBox("White");
                     MessageBox.Show("Black can't move so white won!", "White won");
                     whiteWins = whiteWins + 1;
                     resetGame();
@@ -692,6 +695,7 @@ namespace Hexapawn
                     pawnID = "None";
                     moveChecker(e);
                     blackWins = blackWins + 1;
+                    AI2.pressBox("Black");
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
@@ -708,6 +712,7 @@ namespace Hexapawn
                     pawnID = "None";
                     moveChecker(e);
                     blackWins = blackWins + 1;
+                    AI2.pressBox("Black");
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
@@ -729,7 +734,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
                 else if (pawnID == "WBC")
                 {
@@ -743,7 +748,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
             }
             else if (wbTurn == "Black")
@@ -760,7 +765,7 @@ namespace Hexapawn
                     AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
                 if (pawnID == "BTL")
                 {
@@ -771,7 +776,7 @@ namespace Hexapawn
                     wbTurn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
             }
         }
@@ -790,6 +795,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
+                    AI2.pressBox("White");
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -804,6 +810,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
+                    AI2.pressBox("White");
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -830,6 +837,7 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None"; 
                     blackWins = blackWins + 1;
+                    AI2.pressBox("Black");
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
@@ -842,6 +850,7 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     blackWins = blackWins + 1;
+                    AI2.pressBox("Black");
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
@@ -856,6 +865,7 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     blackWins = blackWins + 1;
+                    AI2.pressBox("Black");
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
@@ -878,7 +888,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
                 else if (pawnID == "WBC")
                 {
@@ -889,7 +899,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
                 else if (pawnID == "WBR")
                 {
@@ -902,7 +912,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
             }
             else if (wbTurn == "Black")
@@ -918,7 +928,7 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
                 else if (pawnID == "BTC")
                 {
@@ -929,7 +939,7 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
                 else if (pawnID == "BTR")
                 {
@@ -942,7 +952,7 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
             }
         }
@@ -963,6 +973,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
+                    AI2.pressBox("White");
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -975,6 +986,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
+                    AI2.pressBox("White");
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -989,6 +1001,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
+                    AI2.pressBox("White");
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -1016,6 +1029,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
+                    AI2.pressBox("White");
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -1028,6 +1042,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
+                    AI2.pressBox("White");
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -1052,7 +1067,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
                 if (pawnID == "WBC")
                 {
@@ -1065,7 +1080,7 @@ namespace Hexapawn
                     wbTurn = "Black"; AI2.turn = "Black";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
             }
             else if (wbTurn == "Black")
@@ -1079,7 +1094,7 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
                 if (pawnID == "BTC")
                 {
@@ -1092,7 +1107,7 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     moveChecker(e);
-                    AI2.moveSucces = true; AI2.boot();
+                    AI2.moveSucces = true;
                 }
             }
         }
@@ -1115,6 +1130,7 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     blackWins = blackWins + 1;
+                    AI2.pressBox("Black");
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
@@ -1129,17 +1145,16 @@ namespace Hexapawn
                     wbTurn = "White"; AI2.turn = "White";
                     pawnID = "None";
                     blackWins = blackWins + 1;
+                    AI2.pressBox("Black");
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
             }
-
         }
 
         private void start_Click(object sender, RoutedEventArgs e)
         {
             AI2.boot();
-            btnStart.Visibility = Visibility.Hidden;
         }
 
         private void disk_Click(object sender, RoutedEventArgs e)
