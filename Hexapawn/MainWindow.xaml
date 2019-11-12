@@ -3,10 +3,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Hexapawn.AI2="Hexapawn.AI2"
         mc:Ignorable="d"
+        WindowState="Maximized"
+        WindowStyle="None"
         Title="MainWindow" Height="450" Width="800"
         MinHeight="350" MinWidth="325">
-    <Grid>
+    <Grid Background="#25242b">
+        <Grid Width="99" Height="50" VerticalAlignment="Top">
+            <Button x:Name="btnD" Width="33" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Content="D" BorderBrush="{x:Null}" Panel.ZIndex="4" Click="disk_Click"/>
+            <Button x:Name="btnE" Width="33" Height="50" VerticalAlignment="Top" HorizontalAlignment="Center" Content="E" BorderBrush="{x:Null}" Panel.ZIndex="4" Click="disk_Click"/>
+            <Button x:Name="btnF" Width="33" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Content="F" BorderBrush="{x:Null}" Panel.ZIndex="4" Click="disk_Click"/>
+            <Button x:Name="btnStart" Width="99" Height="50" VerticalAlignment="Top" Click="start_Click" Content="Start!" BorderBrush="{x:Null}" Background="White"/>
+        </Grid>
+        
         <Grid Width="300" Height="300">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />

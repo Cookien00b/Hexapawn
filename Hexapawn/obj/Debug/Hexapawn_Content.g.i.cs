@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("hexapawn_icon.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ai2.txt")]
 
 
