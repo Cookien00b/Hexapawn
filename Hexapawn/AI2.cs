@@ -72,6 +72,8 @@ namespace Hexapawn
             string[] matchMovesWhite = whiteMatch.ToArray();
             string[] matchMovesBlack = blackMatch.ToArray();
 
+            Array.ForEach(matchMovesBlack, Console.WriteLine);
+            Array.ForEach(matchMovesWhite, Console.WriteLine);
 
 
             if (w == "White")
@@ -92,7 +94,7 @@ namespace Hexapawn
                     winsAndLoses = Encoding.ASCII.GetString(winArray);
                     winsAndLoses = winsAndLoses + "1";
 
-                    using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                    using (System.IO.FileStream fs = System.IO.File.Create(filePath))
                     {
                         byte[] bytes = Encoding.ASCII.GetBytes(winsAndLoses);
                         fs.Write(bytes, 0, bytes.Length);
@@ -105,14 +107,14 @@ namespace Hexapawn
                     winsAndLoses = Encoding.ASCII.GetString(winArray);
                     winsAndLoses = winsAndLoses + "0";
 
-                    using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                    using (System.IO.FileStream fs = System.IO.File.Create(filePath))
                     {
                         byte[] bytes = Encoding.ASCII.GetBytes(winsAndLoses);
                         fs.Write(bytes, 0, bytes.Length);
                     }
                 }
             }
-            else if(w == "Black")
+            else if (w == "Black")
             {
                 for (int wins = 0; wins < matchMovesWhite.Length; wins++)
                 {
@@ -128,9 +130,9 @@ namespace Hexapawn
 
                     byte[] winArray = File.ReadAllBytes(filePath);
                     winsAndLoses = Encoding.ASCII.GetString(winArray);
-                    winsAndLoses = winsAndLoses + "0";
+                    winsAndLoses += "0";
 
-                    using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                    using (System.IO.FileStream fs = System.IO.File.Create(filePath))
                     {
                         byte[] bytes = Encoding.ASCII.GetBytes(winsAndLoses);
                         fs.Write(bytes, 0, bytes.Length);
@@ -141,22 +143,22 @@ namespace Hexapawn
 
                     winArray = File.ReadAllBytes(filePath);
                     winsAndLoses = Encoding.ASCII.GetString(winArray);
-                    winsAndLoses = winsAndLoses + "1";
+                    winsAndLoses += "1";
 
-                    using (System.IO.FileStream fs = System.IO.File.Create(pathString))
+                    using (System.IO.FileStream fs = System.IO.File.Create(filePath))
                     {
                         byte[] bytes = Encoding.ASCII.GetBytes(winsAndLoses);
                         fs.Write(bytes, 0, bytes.Length);
                     }
                 }
             }
-            await Task.Delay(10);
+            await Task.Delay(20);
             LeftMouseClick(1000, 600);
         }
 
         public static async Task pressStart()
         {
-            await Task.Delay(10);
+            await Task.Delay(20);
             LeftMouseClick(950, 50);
         }
 
@@ -164,64 +166,64 @@ namespace Hexapawn
         {
             LeftMouseClick(850, 400);
             last2Moves("1");
-            
-            
+
+
         }
         public static async Task press2()
         {
             LeftMouseClick(950, 400);
             last2Moves("2");
-            
-            
+
+
         }
         public static async Task press3()
         {
             LeftMouseClick(1050, 400);
             last2Moves("3");
-            
-            
+
+
         }
         public static async Task press4()
         {
             LeftMouseClick(850, 550);
             last2Moves("4");
-            
-            
+
+
         }
         public static async Task press5()
         {
             LeftMouseClick(950, 550);
             last2Moves("5");
-            
-            
+
+
         }
         public static async Task press6()
         {
             LeftMouseClick(1050, 550);
             last2Moves("6");
-            
-            
+
+
         }
         public static async Task press7()
         {
             LeftMouseClick(850, 700);
             last2Moves("7");
-            
-            
+
+
         }
         public static async Task press8()
         {
             LeftMouseClick(950, 700);
             last2Moves("8");
-            
-            
+
+
         }
         public static async Task press9()
         {
             LeftMouseClick(1050, 700);
             last2Moves("9");
-            
-            
+
+
         }
 
 
@@ -231,42 +233,42 @@ namespace Hexapawn
             blackBoard = "";
             board = "";
 
-            if(B1 == true)
-                blackBoard = blackBoard + "1";
-            if(B2 == true)
-                blackBoard = blackBoard + "2";
-            if(B3 == true)
-                blackBoard = blackBoard + "3";
-            if(B4 == true)
-                blackBoard = blackBoard + "4";
+            if (B1 == true)
+                blackBoard += "1";
+            if (B2 == true)
+                blackBoard += "2";
+            if (B3 == true)
+                blackBoard += "3";
+            if (B4 == true)
+                blackBoard += "4";
             if (B5 == true)
-                blackBoard = blackBoard + "5";
+                blackBoard += "5";
             if (B6 == true)
-                blackBoard = blackBoard + "6";
+                blackBoard += "6";
             if (B7 == true)
-                blackBoard = blackBoard + "7";
+                blackBoard += "7";
             if (B8 == true)
-                blackBoard = blackBoard + "8";
+                blackBoard += "8";
             if (B9 == true)
-                blackBoard = blackBoard + "9";
+                blackBoard += "9";
             if (W1 == true)
-                whiteBoard = whiteBoard + "1";
+                whiteBoard += "1";
             if (W2 == true)
-                whiteBoard = whiteBoard + "2";
+                whiteBoard += "2";
             if (W3 == true)
-                whiteBoard = whiteBoard + "3";
+                whiteBoard += "3";
             if (W4 == true)
-                whiteBoard = whiteBoard + "4";
+                whiteBoard += "4";
             if (W5 == true)
-                whiteBoard = whiteBoard + "5";
+                whiteBoard += "5";
             if (W6 == true)
-                whiteBoard = whiteBoard + "6";
+                whiteBoard += "6";
             if (W7 == true)
-                whiteBoard = whiteBoard + "7";
+                whiteBoard += "7";
             if (W8 == true)
-                whiteBoard = whiteBoard + "8";
+                whiteBoard += "8";
             if (W9 == true)
-                whiteBoard = whiteBoard + "9";
+                whiteBoard += "9";
 
             if (whiteBoard.Length <= 3)
             {
@@ -350,7 +352,7 @@ namespace Hexapawn
                 for (int i = 0; i < winsAndLoses.Length; i++)
                 {
                     char winOrLose = winsAndLoses[i];
-                    if(winOrLose == 49)
+                    if (winOrLose == 49)
                     {
                         wins = wins + 1;
                     }
@@ -399,7 +401,7 @@ namespace Hexapawn
                             {
                                 loses = loses + 1;
                             }
-                            
+
                         }
                         tempChance = wins * 100 / loses;
                         winChancePerMove.Add(tempChance);
@@ -437,9 +439,9 @@ namespace Hexapawn
                 }
                 else
                 {
-                    await rndPlay();
+                    string moveTurn = await rndPlay();
 
-                    if (turn == "White")
+                    if (moveTurn == "White")
                         whiteMatch.Add(lastMove);
                     else
                         blackMatch.Add(lastMove);
@@ -494,9 +496,9 @@ namespace Hexapawn
             {
                 System.IO.Directory.CreateDirectory(pathString);
 
-                await rndPlay();
+                string moveTurn = await rndPlay();
 
-                if (turn == "White")
+                if (moveTurn == "White")
                     whiteMatch.Add(lastMove);
                 else
                     blackMatch.Add(lastMove);
@@ -516,12 +518,13 @@ namespace Hexapawn
             await pressStart();
         }
 
-        public static async Task rndPlay()
+        public static async Task<string> rndPlay()
         {
+            string movePlay = turn;
             moveSucces = false;
             for (int g = 0; moveSucces != true; g++)
             {
-                
+
                 Random rndP = new Random();
                 int rndPress = rndP.Next(1, 10);
                 if (rndPress == 1)
@@ -561,10 +564,12 @@ namespace Hexapawn
                     await press9();
                 }
 
-                await Task.Delay(30);
+
+                await Task.Delay(50);
 
             }
             moveSucces = false;
+            return movePlay;
         }
         public static void aiLearn()
         {
