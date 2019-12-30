@@ -15,6 +15,7 @@ namespace Hexapawn
     {
         public static string lastMove = "74";
         public static bool moveSucces;
+        public static bool clickSucces = false;
 
 
         public static string turn = "White";
@@ -43,8 +44,10 @@ namespace Hexapawn
         static string board;
         static string whiteBoard;
         static string blackBoard;
+        public static string movePlay;
         public static bool firstBoot = true;
         public static string folderName;
+        public static bool firstPlay = true;
         public static List<string> whiteMatch = new List<string>();
         public static List<string> blackMatch = new List<string>();
         public static List<string> whiteMatchBoard = new List<string>();
@@ -520,8 +523,13 @@ namespace Hexapawn
 
         public static async Task<string> rndPlay()
         {
-            string movePlay = turn;
-            moveSucces = false;
+            
+            if (firstPlay == true)
+            {
+                firstPlay = false;
+                movePlay = turn;
+                moveSucces = false;
+            }
             for (int g = 0; moveSucces != true; g++)
             {
 
@@ -563,13 +571,21 @@ namespace Hexapawn
                 {
                     await press9();
                 }
-
+                //if (moveSucces == false)
+                //{
+                //    await taskReturn();
+                //}
 
                 await Task.Delay(50);
-
             }
             moveSucces = false;
+            //firstPlay = true;
             return movePlay;
+        }
+        public static async Task taskReturn()
+        {
+            await Task.Delay(30);
+            await rndPlay();
         }
         public static void aiLearn()
         {

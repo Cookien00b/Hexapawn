@@ -80,6 +80,7 @@ namespace Hexapawn
 
             AI2.turn = "White";
 
+
             AI2.W7 = true;
             AI2.W8 = true;
             AI2.W9 = true;
@@ -287,6 +288,7 @@ namespace Hexapawn
                     return;
                 }
             }
+            AI2.clickSucces = true;
         }
 
         public void BtnMiddleLeft_Click(object sender, RoutedEventArgs e)
@@ -342,6 +344,7 @@ namespace Hexapawn
                     }
                 }
             }
+            AI2.clickSucces = true;
         }
 
         public void BtnTopLeft_Click(object sender, RoutedEventArgs e)
@@ -382,6 +385,7 @@ namespace Hexapawn
                     }
                 }
             }
+            AI2.clickSucces = true;
         }
 
         public void BtnBottomCenter_Click(object sender, RoutedEventArgs e)
@@ -428,6 +432,7 @@ namespace Hexapawn
                     return;
                 }
             }
+            AI2.clickSucces = true;
         }
 
         public void BtnMiddleCenter_Click(object sender, RoutedEventArgs e)
@@ -494,6 +499,7 @@ namespace Hexapawn
                     }
                 }
             }
+            AI2.clickSucces = true;
         }
 
         public void BtnTopCenter_Click(object sender, RoutedEventArgs e)
@@ -540,6 +546,7 @@ namespace Hexapawn
                     }
                 }
             }
+            AI2.clickSucces = true;
         }
 
         public void BtnTopRight_Click(object sender, RoutedEventArgs e)
@@ -579,6 +586,7 @@ namespace Hexapawn
                     }
                 }
             }
+            AI2.clickSucces = true;
         }
 
         public void BtnMiddleRight_Click(object sender, RoutedEventArgs e)
@@ -633,6 +641,7 @@ namespace Hexapawn
                     }
                 }
             }
+            AI2.clickSucces = true;
         }
 
         public void BtnBottomRight_Click(object sender, RoutedEventArgs e)
@@ -672,6 +681,7 @@ namespace Hexapawn
                     return;
                 }
             }
+            AI2.clickSucces = true;
         }
 
 
@@ -1161,7 +1171,7 @@ namespace Hexapawn
         {
             if(sender == btnD)
             {
-                AI2.folderName = @"d:\aiMem";
+                AI2.folderName = @"c:\aiMem";
             }
             if (sender == btnE)
             {
