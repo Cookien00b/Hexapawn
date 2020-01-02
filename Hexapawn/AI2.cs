@@ -69,12 +69,12 @@ namespace Hexapawn
         {
             if (lastMove.Length < 2)
             {
-                lastMove = lastMove + lm;
+                lastMove += lm;
             }
             else
             {
                 lastMove = lastMove.Substring(1);
-                lastMove = lastMove + lm;
+                lastMove += lm;
             }
         }
 
