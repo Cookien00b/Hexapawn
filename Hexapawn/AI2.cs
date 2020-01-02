@@ -55,7 +55,15 @@ namespace Hexapawn
 
         public static void boot()
         {
+            //test();
+            //System.Windows.MessageBox.Show("Black wins!", "Black won");
+            
             pawnCheck();
+        }
+        public static async Task test()
+        {
+            await Task.Delay(200);
+            LeftMouseClick(1000, 600);
         }
         public static void last2Moves(string lm)
         {
@@ -155,8 +163,7 @@ namespace Hexapawn
                     }
                 }
             }
-            await Task.Delay(20);
-            LeftMouseClick(1000, 600);
+            test();
         }
 
         public static async Task pressStart()
@@ -576,7 +583,7 @@ namespace Hexapawn
                 //    await taskReturn();
                 //}
 
-                await Task.Delay(50);
+                await Task.Delay(75);
             }
             moveSucces = false;
             //firstPlay = true;
