@@ -41,3 +41,14 @@ C:\Users\User\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.csproj.CoreCompileI
 C:\Users\User\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.exe
 C:\Users\User\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.pdb
 C:\Users\User\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.csprojAssemblyReference.cache
+C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.csprojAssemblyReference.cache
+C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\MainWindow.baml
+C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\MainWindow.g.cs
+C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\App.g.cs
+C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn_MarkupCompile.cache
+C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.g.resources
+C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.Properties.Resources.resources
+C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.csproj.GenerateResource.cache
+C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.csproj.CoreCompileInputs.cache
+C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.exe
+C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.pdb
