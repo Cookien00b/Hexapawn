@@ -231,6 +231,7 @@ namespace Hexapawn
                 if (wbTurn == "White")
                 {
                     AI2.pressBox("Black");
+                    AI2.test();
                     MessageBox.Show("White can't move so black won!", "Black won");
                     blackWins = blackWins + 1;
                     resetGame();
@@ -238,6 +239,7 @@ namespace Hexapawn
                 if (wbTurn == "Black")
                 {
                     AI2.pressBox("White");
+                    AI2.test();
                     MessageBox.Show("Black can't move so white won!", "White won");
                     whiteWins = whiteWins + 1;
                     resetGame();
@@ -706,6 +708,7 @@ namespace Hexapawn
                     moveChecker(e);
                     blackWins = blackWins + 1;
                     AI2.pressBox("Black");
+                    AI2.test();
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
@@ -723,6 +726,7 @@ namespace Hexapawn
                     moveChecker(e);
                     blackWins = blackWins + 1;
                     AI2.pressBox("Black");
+                    AI2.test();
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
@@ -806,6 +810,7 @@ namespace Hexapawn
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     AI2.pressBox("White");
+                    AI2.test();
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -821,6 +826,7 @@ namespace Hexapawn
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     AI2.pressBox("White");
+                    AI2.test();
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -848,6 +854,7 @@ namespace Hexapawn
                     pawnID = "None"; 
                     blackWins = blackWins + 1;
                     AI2.pressBox("Black");
+                    AI2.test();
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
@@ -861,6 +868,7 @@ namespace Hexapawn
                     pawnID = "None";
                     blackWins = blackWins + 1;
                     AI2.pressBox("Black");
+                    AI2.test();
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
@@ -876,6 +884,7 @@ namespace Hexapawn
                     pawnID = "None";
                     blackWins = blackWins + 1;
                     AI2.pressBox("Black");
+                    AI2.test();
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
@@ -984,6 +993,7 @@ namespace Hexapawn
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     AI2.pressBox("White");
+                    AI2.test();
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -997,6 +1007,7 @@ namespace Hexapawn
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     AI2.pressBox("White");
+                    AI2.test();
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -1012,6 +1023,7 @@ namespace Hexapawn
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     AI2.pressBox("White");
+                    AI2.test();
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -1040,6 +1052,7 @@ namespace Hexapawn
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     AI2.pressBox("White");
+                    AI2.test();
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -1053,6 +1066,7 @@ namespace Hexapawn
                     pawnID = "None";
                     whiteWins = whiteWins + 1;
                     AI2.pressBox("White");
+                    AI2.test();
                     MessageBox.Show("White wins!", "White won");
                     resetGame();
                 }
@@ -1141,6 +1155,7 @@ namespace Hexapawn
                     pawnID = "None";
                     blackWins = blackWins + 1;
                     AI2.pressBox("Black");
+                    AI2.test();
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }
@@ -1156,6 +1171,7 @@ namespace Hexapawn
                     pawnID = "None";
                     blackWins = blackWins + 1;
                     AI2.pressBox("Black");
+                    AI2.test();
                     MessageBox.Show("Black wins!", "Black won");
                     resetGame();
                 }

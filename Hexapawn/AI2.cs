@@ -80,6 +80,7 @@ namespace Hexapawn
 
         public static async Task pressBox(string w)
         {
+            await Task.Delay(200);
             string[] matchMovesWhite = whiteMatch.ToArray();
             string[] matchMovesBlack = blackMatch.ToArray();
 
@@ -163,12 +164,11 @@ namespace Hexapawn
                     }
                 }
             }
-            test();
         }
 
         public static async Task pressStart()
         {
-            await Task.Delay(20);
+            await Task.Delay(75);
             LeftMouseClick(950, 50);
         }
 
@@ -443,7 +443,7 @@ namespace Hexapawn
                     {
                         if (aiChoice <= winProcentPerMove[y])
                         {
-                            play(oldMoves[y]);
+                            await play(oldMoves[y]);
                         }
                     }
                 }
@@ -589,11 +589,7 @@ namespace Hexapawn
             //firstPlay = true;
             return movePlay;
         }
-        public static async Task taskReturn()
-        {
-            await Task.Delay(30);
-            await rndPlay();
-        }
+        
         public static void aiLearn()
         {
 
@@ -633,83 +629,85 @@ namespace Hexapawn
         }
         public static async Task play(string e)
         {
+            await Task.Delay(75);
             char firstPress = e[0];
             char secondPress = e[1];
             if (firstPress == 49)
             {
-                press1();
+                await press1();
             }
             if (firstPress == 50)
             {
-                press2();
+                await press2();
             }
             if (firstPress == 51)
             {
-                press3();
+                await press3();
             }
             if (firstPress == 52)
             {
-                press4();
+                await press4();
             }
             if (firstPress == 53)
             {
-                press5();
+                await press5();
             }
             if (firstPress == 54)
             {
-                press6();
+                await press6();
             }
             if (firstPress == 55)
             {
-                press7();
+                await press7();
             }
             if (firstPress == 56)
             {
-                press8();
+                await press8();
             }
             if (firstPress == 57)
             {
-                press9();
+                await press9();
             }
 
-            Task.Delay(30);
+            await Task.Delay(75);
 
             if (secondPress == 49)
             {
-                press1();
+                await press1();
             }
             if (secondPress == 50)
             {
-                press2();
+                await press2();
             }
             if (secondPress == 51)
             {
-                press3();
+                await press3();
             }
             if (secondPress == 52)
             {
-                press4();
+                await press4();
             }
             if (secondPress == 53)
             {
-                press5();
+                await press5();
             }
             if (secondPress == 54)
             {
-                press6();
+                await press6();
             }
             if (secondPress == 55)
             {
-                press7();
+                await press7();
             }
             if (secondPress == 56)
             {
-                press8();
+                await press8();
             }
             if (secondPress == 57)
             {
-                press9();
+                await press9();
             }
+            await Task.Delay(75);
 
             if (turn == "White")
                 whiteMatch.Add(lastMove);
