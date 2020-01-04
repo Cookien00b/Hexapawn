@@ -50,6 +50,9 @@ namespace Hexapawn
             whitePwnMiddleCenter.Visibility = Visibility.Hidden;
             whitePwnMiddleRight.Visibility = Visibility.Hidden;
             hideAllMoves();
+            WindowState = WindowState.Maximized;
+            Focus();
+            AI2.pressStart();
         }
 
         private void resetGame()
@@ -124,7 +127,9 @@ namespace Hexapawn
             hideAllMoves();
             AI2.whiteMatch = new List<string>();
             AI2.blackMatch = new List<string>();
-            AI2.boot();
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
+            //AI2.boot();
         }
 
         private void hideAllMoves()
@@ -1183,24 +1188,24 @@ namespace Hexapawn
             AI2.boot();
         }
 
-        private void disk_Click(object sender, RoutedEventArgs e)
-        {
-            if(sender == btnD)
-            {
-                AI2.folderName = @"c:\aiMem";
-            }
-            if (sender == btnE)
-            {
-                AI2.folderName = @"e:\aiMem";
-            }
-            if (sender == btnF)
-            {
-                AI2.folderName = @"f:\aiMem";
-            }
-            btnD.Visibility = Visibility.Hidden;
-            btnE.Visibility = Visibility.Hidden;
-            btnF.Visibility = Visibility.Hidden;
-        }
+        //private void disk_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if(sender == btnD)
+        //    {
+        //        AI2.folderName = @"c:\aiMem";
+        //    }
+        //    if (sender == btnE)
+        //    {
+        //        AI2.folderName = @"e:\aiMem";
+        //    }
+        //    if (sender == btnF)
+        //    {
+        //        AI2.folderName = @"f:\aiMem";
+        //    }
+        //    btnD.Visibility = Visibility.Hidden;
+        //    btnE.Visibility = Visibility.Hidden;
+        //    btnF.Visibility = Visibility.Hidden;
+        //}
     }
 }
 

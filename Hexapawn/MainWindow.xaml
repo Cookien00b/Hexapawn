@@ -7,13 +7,10 @@
         mc:Ignorable="d"
         WindowState="Maximized"
         WindowStyle="None"
-        Title="MainWindow" Height="450" Width="800"
-        MinHeight="350" MinWidth="325">
+        Title="Hexapawn" Height="450" Width="800"
+        MinHeight="350" MinWidth="325" ResizeMode="NoResize" Icon="Hexapawn_Icon.ico" WindowStartupLocation="Manual">
     <Grid Background="#25242b">
         <Grid Width="99" Height="50" VerticalAlignment="Top">
-            <Button x:Name="btnD" Width="33" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Content="D" BorderBrush="{x:Null}" Panel.ZIndex="4" Click="disk_Click"/>
-            <Button x:Name="btnE" Width="33" Height="50" VerticalAlignment="Top" HorizontalAlignment="Center" Content="E" BorderBrush="{x:Null}" Panel.ZIndex="4" Click="disk_Click"/>
-            <Button x:Name="btnF" Width="33" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Content="F" BorderBrush="{x:Null}" Panel.ZIndex="4" Click="disk_Click"/>
             <Button x:Name="btnStart" Width="99" Height="50" VerticalAlignment="Top" Click="start_Click" Content="Start!" BorderBrush="{x:Null}" Background="White"/>
         </Grid>
         

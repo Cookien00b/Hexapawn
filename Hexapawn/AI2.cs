@@ -46,7 +46,7 @@ namespace Hexapawn
         static string blackBoard;
         public static string movePlay;
         public static bool firstBoot = true;
-        public static string folderName;
+        public static string folderName = @"c:\aiMem";
         public static bool firstPlay = true;
         public static List<string> whiteMatch = new List<string>();
         public static List<string> blackMatch = new List<string>();
@@ -62,7 +62,7 @@ namespace Hexapawn
         }
         public static async Task test()
         {
-            await Task.Delay(200);
+            await Task.Delay(1000);
             LeftMouseClick(1000, 600);
         }
         public static void last2Moves(string lm)
@@ -168,7 +168,7 @@ namespace Hexapawn
 
         public static async Task pressStart()
         {
-            await Task.Delay(75);
+            await Task.Delay(200);
             LeftMouseClick(950, 50);
         }
 
