@@ -52,3 +52,6 @@ C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.csproj.GenerateRe
 C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.csproj.CoreCompileInputs.cache
 C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.exe
 C:\Users\Brinks\Documents\hexapawn\Hexapawn\obj\Debug\Hexapawn.pdb
+C:\Users\Brinks\Documents\Hexapawn\Hexapawn\bin\Debug\Hexapawn.exe.config
+C:\Users\Brinks\Documents\Hexapawn\Hexapawn\bin\Debug\Hexapawn.exe
+C:\Users\Brinks\Documents\Hexapawn\Hexapawn\bin\Debug\Hexapawn.pdb
