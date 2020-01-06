@@ -1,1 +1,8 @@
-When opening the game. On the top of the screen you see D, E and an F button. This is where your AI's brain is. Either create a directory called aiMem. Then press the button with the corrisponding letter of the drive it has been created on. (You can also use a USB stick to act as a brain). After pressing one of the drive buttons a start button will apear. Press start and of it goes!
+# **Installation
+
+To use the AI execute the installer. This will download the AI.
+
+
+# **Using the AI
+
+When using the AI do not use the mouse and make sure that other windows are minimized.
