@@ -1063,7 +1063,7 @@ namespace Hexapawn
                 }
                 if (pawnID == "WMR")
                 {
-                    whitePwnMiddleLeft.Visibility = Visibility.Hidden;
+                    whitePwnMiddleRight.Visibility = Visibility.Hidden;
                     whitePwnTopRight.Visibility = Visibility.Visible;
                     whiteTopRight = true;
                     whiteMiddleRight = false; AI2.W6 = false;
